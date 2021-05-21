@@ -17,4 +17,4 @@ Formula: <input name="formula" list="options"><br />
 </datalist>
 </form>
 ```
-![Source](https://levelup.gitconnected.com/easy-autocomplete-suggestions-for-inputs-with-the-html5-datalist-tag-22fcfc409235)
+[Source](https://levelup.gitconnected.com/easy-autocomplete-suggestions-for-inputs-with-the-html5-datalist-tag-22fcfc409235)
