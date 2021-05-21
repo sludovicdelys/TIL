@@ -6,7 +6,7 @@
 _21 May 2021_
 1. In order to suggest a options in an HTML input field, you can use the ```<datalist>``` element. 
 
-  Example from the [Advanced Form](https://www.testdome.com/questions/html-css/advanced-form/50741?visibility=1&skillId=3)question:
+  Example from the [Advanced Form](https://www.testdome.com/questions/html-css/advanced-form/50741?visibility=1&skillId=3) question:
   ```
   <form>
   Formula: <input name="formula" list="options"><br />
@@ -22,7 +22,7 @@ _21 May 2021_
 
 2. With the HTML ```<details>``` Element, we can create a disclosure widget in which the rest of the content is displayed only when it is toggled to an open state. The closed state displays only the content inside the ```<summary>``` element. 
 
-  Example from the [Semantics](https://www.testdome.com/questions/html-css/semantics/50326?visibility=1&skillId=3)question:
+  Example from the [Semantics](https://www.testdome.com/questions/html-css/semantics/50326?visibility=1&skillId=3) question:
   ```
   <details>
     <summary>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</summary>
