@@ -40,7 +40,8 @@ Using the example above, I will store this set in an array and illustrate what i
 array = [set]; 
 console.log(array); // [Set(6)]
 ```
-It is only the Set itself that is stored inside the array, but we need to store the values of the set inside the array, which is the reason why the solution uses syntactic sugar.
+It is only the Set itself that is stored inside the array, but we need to store the values of the set inside the array, which is the reason why the solution uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) as syntactic sugar.
+In this example, the spread syntax allows us to create a new array using the existing array. 
 ```
 array = [...set]; 
 console.log(array); // (6) ["a", "c", "b", "x", "y", "z"] 
