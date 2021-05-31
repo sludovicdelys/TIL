@@ -1,5 +1,58 @@
 # Today I Learned
 
+## CodeWars
+
+### Set
+_31 May 2021_
+
+While looking at the solutions of a CodeWars challenge, I came accross a JavaScript object I was not familiar with: the ```Set``` object. 
+
+**Challenge description:**
+Take 2 strings ```s1``` and ```s2``` including only letters from ```a``` to ```z```. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+**Examples**
+```a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+```
+
+**Solution**
+```
+const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+```
+
+Inside a [```Set```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Setobject) object, the collections of value must be unique, so **a value can only occur once**. 
+Since strings are collections of characters, the value equality will be checked for both of those strings with the ```new Set(s1+s2)``` syntax inside the array. 
+By using a Set object to make sure there are only unique values inside the combined string, the array now contains a set object instead of string values. 
+
+**Further analysis**
+
+A set looks like this inside the browser's console: 
+```
+var set = new Set('acbaxyz'); 
+console.log(set); // Set(6) {"a", "c", "b", "x", "y", …}
+```
+Using the example above, I will store this set in an array and illustrate what is inside:
+```
+array = [set]; 
+console.log(array); // [Set(6)]
+```
+It is only the Set itself that is stored inside the array, but we need to store the values of the set inside the array, which is the reason why the solution uses syntactic sugar.
+```
+array = [...set]; 
+console.log(array); // (6) ["a", "c", "b", "x", "y", "z"] 
+```
+_What's happening?_ 
+
+The Set is deconstructed with the syntactic sugar and the values inside the set are being re-assigned and stored as array values.
+
+\* **Note:** we could also use Array.from() to achieve the same result\*
+
+[Syntactic Sugar](https://sophiali.dev/syntactic-sugar-examples-javascript)
+
 ## TestDome 
 
 ### HTML/CSS
@@ -18,7 +71,7 @@ _21 May 2021_
   </datalist>
   </form>
   ```
-  [Source](https://levelup.gitconnected.com/easy-autocomplete-suggestions-for-inputs-with-the-html5-datalist-tag-22fcfc409235)
+  [Auto-Complete Suggestions](https://levelup.gitconnected.com/easy-autocomplete-suggestions-for-inputs-with-the-html5-datalist-tag-22fcfc409235)
 
 2. With the HTML ```<details>``` Element, we can create a disclosure widget in which the rest of the content is displayed only when it is toggled to an open state. The closed state displays only the content inside the ```<summary>``` element. 
 
@@ -37,4 +90,4 @@ _21 May 2021_
           Nam fermentum posuere mauris, quis aliquam nibh dictum sed.</p>
   </details>
   ```
-  [Source](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+  [HTML details Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
