@@ -2,12 +2,36 @@
 
 ## CodeWars
 
+### String Functions and Operators 
+_01 June 2021_
+
+Came accross two [PostgreSQL string functions](https://www.postgresql.org/docs/current/functions-string.html) while attempting the following challenge.
+
+**Challenge description:**
+
+Write a select statement that takes ```name``` from ```person``` table and return "Hello, <name> how are you doing today?" results in a column named ```greeting```.
+  
+** Two Solutions:**
+  
+1. ```format``` solution
+```
+SELECT format('Hello, %s how are you doing today?', name) AS greeting
+FROM person;
+``` 
+2. ```concat``` solution 
+```
+  Select CONCAT('Hello, ',name ,' how are you doing today?') as greeting from person;
+```
+The first function concatenates the text representations of all arguments. 
+The second function produces output formatted according to a format string. 
+  
 ### Set
 _31 May 2021_
 
 While looking at the solutions of a CodeWars challenge, I came accross a JavaScript object I was not familiar with: the ```Set``` object. 
 
 **Challenge description:**
+  
 Take 2 strings ```s1``` and ```s2``` including only letters from ```a``` to ```z```. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
 
 **Examples**
