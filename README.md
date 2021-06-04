@@ -1,5 +1,29 @@
 # Today I Learned
 
+## React
+
+### Tic Tac Toe 
+_04 June 2021_ 
+
+[**Tutorial: Intro to React**](https://reactjs.org/tutorial/tutorial.html)
+
+A React component (ex: ```React.component{}```) takes in parameters called ```props``` (refers to properties) and returns a hierarchy of views to display by using the ```render``` method. 
+
+The ```render``` method displays a lightweight description of what you want to see on the screen. It returns a **React element**. 
+
+[**JSX**](https://reactjs.org/docs/introducing-jsx.html) is a syntax extension to JavaScript, mostly used in React to describe what the UI should look like. You can put any valid JavaScript expression inside JSX by wrapping it in curly braces. 
+
+Example: 
+```
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+```
+
+"Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both."
+  * [seperation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. 
+  * concern: a set of information that affects the code of a computer program.
+
+
 ## CodeWars
 
 ### String Functions and Operators 
