@@ -1,17 +1,43 @@
 # Today I Learned
 
+<!-- INDEX -->
+<details open="open">
+  <summary>Index</summary>
+  <ol>
+    <li>
+     <a href="#react">React </a>
+     <ul>
+        <li><a href="#tic-tac-toe">Tic Tac Toe</a></li>
+      </ul>
+   </li>
+   <li>
+      <a href="#codewars">CodeWars</a>
+      <ul>
+        <li><a href="#string-functions-and-operators">String Functions and Operators</a></li>
+        <li><a href="#set">Set</a></li>
+      </ul>
+   </li>
+   <li><a href="#testdome">TestDome</a>
+     <ul>
+      <li><a href="#html-and-css">HTML/CSS</a></li>
+     </ul
+   </li>
+  </ol>
+</details>
+
 ## React
 
 ### Tic Tac Toe 
-_04 June 2021_ 
+
+  _04 June 2021_ 
 
 [**Tutorial: Intro to React**](https://reactjs.org/tutorial/tutorial.html)
 
-A React component (ex: ```React.component{}```) takes in parameters called ```props``` (refers to properties) and returns a hierarchy of views to display by using the ```render``` method. 
+- A React component (ex: ```React.component{}```) takes in parameters called ```props``` (refers to properties) and returns a hierarchy of views to display by using the ```render``` method. 
 
-The ```render``` method displays a lightweight description of what you want to see on the screen. It returns a **React element**. 
+- The ```render``` method displays a lightweight description of what you want to see on the screen. It returns a **React element**. 
 
-[**JSX**](https://reactjs.org/docs/introducing-jsx.html) is a syntax extension to JavaScript, mostly used in React to describe what the UI should look like. You can put any valid JavaScript expression inside JSX by wrapping it in curly braces. 
+- [**JSX**](https://reactjs.org/docs/introducing-jsx.html) is a syntax extension to JavaScript, mostly used in React to describe what the UI should look like. You can put any valid JavaScript expression inside JSX by wrapping it in curly braces. 
 
 Example: 
 ```
@@ -19,9 +45,21 @@ const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
 ```
 
-"Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both."
+- Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called ```components``` that contain both.:
   * [seperation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. 
   * concern: a set of information that affects the code of a computer program.
+
+- Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+
+- Passing props is how information flows in React apps, from parents to children.
+
+- Notice how with ```onClick={() => alert('click')}```, we’re passing a function as the ```onClick``` prop. React will only call this function after a click. Forgetting ```() =>``` and writing ```onClick={alert('click')}``` is a common mistake, and would fire the alert every time the component re-renders.
+
+- React components can 'remember things' by setting ```this.state``` in their constructors. ```this.state``` should be considered as private to a React component that it’s defined in. First we have to add a ```constructor``` to the class to initialize the state. All React component classes that have a constructor should start with a super(props) call.
+
+- When you call ```setState``` in a component, React automatically updates the child components inside of it too.
+ 
+**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
 
 
 ## CodeWars
@@ -33,7 +71,7 @@ Came accross two [PostgreSQL string functions](https://www.postgresql.org/docs/c
 
 **Challenge description:**
 
-Write a select statement that takes ```name``` from ```person``` table and return "Hello, <name> how are you doing today?" results in a column named ```greeting```.
+Write a select statement that takes ```name``` from ```person``` table and return ```"Hello, <name> how are you doing today?"``` results in a column named ```greeting```.
   
 ** Two Solutions:**
   
@@ -90,8 +128,8 @@ console.log(array); // [Set(6)]
 ```
 It is only the Set itself that is stored inside the array, but we need to store the values of the set inside the array, which is the reason why the solution uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) as syntactic sugar.
 In this example, the spread syntax allows us to create a new array using the existing array. 
-```
-array = [...set]; 
+ 
+```array = [...set]; 
 console.log(array); // (6) ["a", "c", "b", "x", "y", "z"] 
 ```
 _What's happening?_ 
@@ -104,7 +142,7 @@ The Set is deconstructed with the syntactic sugar and the values inside the set 
 
 ## TestDome 
 
-### HTML/CSS
+### HTML and CSS
 _21 May 2021_
 1. In order to suggest a options in an HTML input field, you can use the ```<datalist>``` element. 
 
