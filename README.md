@@ -74,6 +74,10 @@ To prevent JavaScript from breaking the code by inserting a semi-colon after ```
 ```
 **The DOM ```<button>``` element’s onClick attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square’s ```onClick``` prop or Board’s ```handleClick``` method, and the code would work the same. In React, it’s conventional to use ```on[Event]``` names for props which represent events and ```handle[Event]``` for the methods which handle the events.**
 
+  _June 07 2021_
+
+The [```slice()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method copies the values of an array into a new array. 
+
 ## CodeWars
 
 ### String Functions and Operators 
