@@ -145,6 +145,8 @@ I came across a syntax I was not familiar with on this line: ```this.state.xIsNe
 
 In the example above, the ternary operator (```?```) was used to add a condition on the left side (```this.state.xIsNext```), a value on the right side to return when the conditon is true (```'X'```). Then we add a colon ```:``` followed by a value to return if the condition is false (```'O'```). 
 
+[Source: freeCodeCamp](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript)
+
 
 ## CodeWars
 
