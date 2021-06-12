@@ -93,16 +93,16 @@ player.score = 2;
 
 The result is the same, but by not mutating the data we get several advantages
 
-_Complex Features Become Simple_
+***Complex Features Become Simple***
 
 It allows us to undo and redo certain actions which is a common requirement in many applications 
 
-_Detecting Changes_
+***Detecting Changes***
 
 It is difficult to detect changes in mutable objects, because it requires that we compare the current object with previous copies of itself. 
 Detecting changes in immutable objects is easier. If the immutable object that is being referenced is different than the previous one, then the object has changed. 
 
-_Determining When to Re-Render in React_
+***Determining When to Re-Render in React***
 
 Immutability helps you build _pure components_ in React. Since immutability can determine if changes have been made, it helps to determine when a component requires re-rendering 
 			
