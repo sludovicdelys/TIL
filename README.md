@@ -215,6 +215,8 @@ _21 May 2021_
 
 ### Markdown 
 
+_June 12 2021_
+
 Some time ago, I wanted my markdown file to have an index, because I wanted readers to be able to go directly to a certain subject they were more interested in reading. While browsing through Stackoverflow, one of the users suggested the use of HTML tags to construct an index. It was a good solution, it did the job, but I found it was not completely adapted to my needs. 
 
 _Example of Previous Code_
