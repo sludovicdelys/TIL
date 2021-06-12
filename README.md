@@ -78,6 +78,33 @@ To prevent JavaScript from breaking the code by inserting a semi-colon after ```
 
 The [```slice()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method copies the values of an array into a new array. 
 
+**Immutability**
+				
+_June 12 2021_
+
+Two approaches to changing data: 
+	- _mutate_ the data by directly changing the data's values
+	- replace the data with a new copy which has the desires changes 
+
+Examples: 
+
+_Data Change with Mutation_
+
+```
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+```
+
+_Data Change with Mutation_
+
+```
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+```				
+   
+
 ## CodeWars
 
 ### String Functions and Operators 
