@@ -19,6 +19,8 @@
 	1. [Markdown](#markdown)
 5. [Opquast](#opquast)
 	1. [Contents](#contents)
+6. [AlgoExpert](#algoexpert)
+   	1. [Arrays](#arrays)
 
 ## React
 
@@ -347,4 +349,76 @@ In each of the pages evaluated, check that there is a full reference to the repr
 **Control**
 Inside the source code of each page that is examined: 
 - Check the presence of a tag `<meta name="description" content="" />
-- Check that the text of this tag describe effectiveley, in a specific manner or more generic, the content of the page. 
+- Check that the text of this tag describe effectiveley, in a specific manner or more generic, the content of the page.
+
+## AlgoExpert
+
+_09 Aug 2023_
+
+I have started practicing my algorithm solving skills, and I am currently working on arrays which have been proven to be quite mentally taxing although I am only on the easy section of the website. I have been looking at the solutions every time, and asking ChatGPT (This is not a very eco friendly learning practice 😣) to explain bits of code I do not understand. 
+
+I'll be keeping a record of the algorithms I come accross for future reference and to be able to reflect on them. 
+
+### Arrays 
+
+#### [Two Number Sum](https://www.algoexpert.io/questions/two-number-sum)
+
+Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum. If any two numbers in the input array sum up to the target sum, the function should return them in an array, in any order. If no two numbers sum up to the target sum, the function should return them in an array, in any order. If no two numbers sum up to the target sum, the function should return an empty array. 
+
+Note that the target sum has to be obtained by summming two different integers in the array; you can't add a single integer to itself in order to obtain the target sum. 
+
+You can assume that there will be at most one pair of number summing up to the target sum. 
+
+**Solution** : 
+```
+function twoNumberSum(array, targetSum) {
+  const seen = {};
+
+  for (const num of array) {
+    const complement = targetSum - num; 
+
+    if (complement in seen) {
+      return [num, complement];
+    } else {
+      seen[num] = true;
+    }
+  }
+    return [];
+}
+```
+
+#### [Validate Subsequence](https://www.algoexpert.io/questions/validate-subsequence)
+
+Given two non-empty arrays of integers, write a function that determines whether the second array is a subsequence of the first one. 
+
+A subsequence of an array is a set of numbers that aren't necessarily adjacent in the array but that are in the same order as they appear in the array. For instance, the numbers ``` [1, 3, 4] ``` form a subsequence of the array ``` [1, 2, 3, 4] ``` and so do the numbers ``` [2, 4] ```. Note that a single number in an array and the array itself are both valid subsequences of the array. 
+
+**Solution :**
+```
+function isValidSubsequence(array, sequence) {
+  let arrayIndex = 0; 
+  let sequenceIndex = 0; 
+
+  while (arrayIndex < array.length && sequenceIndex < sequence.length) {
+    if (array[arrayIndex] === sequence[sequenceIndex]) {
+      sequenceIndex++;
+    }  
+    arrayIndex++;
+  }
+  return sequenceIndex === sequence.length;
+}
+```
+
+#### [Sorted Squared Array](https://www.algoexpert.io/questions/sorted-squared-array)
+
+Write a function that takes in a non-empty array of integers that are sorted in ascending order and returns a new array of the same length with the squares of the original integers also sorted in ascending order. 
+
+**Solution : **
+```
+function sortedSquaredArray(array) {
+  const squaredArray = array.map(num => num * num);
+  squaredArray.sort((a, b) => a - b);
+  return squaredArray;
+}
+```
+
