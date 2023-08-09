@@ -1,4 +1,12 @@
-# Today I Learned
+# Today I Learned : Exploring The Programming World
+
+👋 Hi, I'm Sabrina, a junior web developer with a fresh software engineering license. Welcome to my GitHub repository, where I document my ongoing quest to master the art of programming and web development.
+
+In this space, you'll find my insights, challenges, and accomplishments as I dive into diverse topics, from algorithms and Typescript to React, HTML, and Sass. I'm passionate about learning and eager to share my journey with you.
+
+I've organized the content into an index, making it easy for you to navigate and explore specific topics that interest you. Feel free to join me on this adventure and follow along as I embrace continuous learning.
+
+Happy coding! 🚀
 
 # Index
 1. [React](#react)
