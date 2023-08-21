@@ -570,11 +570,15 @@ When I go to my page I get a new error in the browser from the PHP DebugBar.
 
 > SQLSTATE[42502]: Base table or view not found: 1146 Table 'laravel.movies' doesn't exist (`SQL: select * from 'movies'`).
 
-I created my database but they aren’t any tables 🗂 There’s no data ! 
+I created my database but they aren’t any tables.
 Hint : `SQL: select * from 'movies'`
 
 ### Executing Migrations
 
 It's time to execute migrations and populate my database 🪄
-Let me look at the Laravel documentation 🤓 [Running Migrations](https://laravel.com/docs/8.x/migrations#running-migrations)
+According to the Laravel documentation on [running migrations](https://laravel.com/docs/8.x/migrations#running-migrations) 🤓 I can use this command : `php artisan migrate`
+
+I don't have any errors popping up, but I don't have any data in my tables ! 🗂 
+
+I have written a few seeders with fake data, but I would like to include real movies. 
 
