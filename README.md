@@ -31,6 +31,8 @@ Happy coding! 🚀
    	1. [Arrays](#arrays)
 7. [Advanced React and TypeScript Project](#advanced-react-and-typescript-project)
    	1. [Set up with Vite](#set-up-with-vite)
+8. [Ofilms a Laravel Project](#ofilms-a-laravel-project)
+	1. [Database Debug](#database-debug)
 
 ## React
 
@@ -502,3 +504,77 @@ Vite.js aims to solve two main problems :
 Why not Webpack ? : 
 
 The choice between Vite.js and Webpack depends on whether you prioritize a quicker development experience or highly customizable build process for complex projects with diverse assets. In the context of our Typescript training it was more beneficial to choose Vite.js over Webpack. 
+
+8. [Ofilms a Laravel Project](#ofilms-a-laravel-project)
+	1. [Database Debug](#database-debug)
+## Ofilms a Laravel Project
+
+### Database Debug
+
+_21 Aug 2023_
+
+⏰ Time spent problem solving : 1h 22mn
+
+**Context of project** : 
+1. movie and series project - O’clock 
+2. Task : Run the project and display site index on browser
+3. Route : `http://127.0.0.1:8080/movies`
+4. Task : Set up a database locally 
+5. Task : Run migrations to create tables in my database `laravel`
+
+**Context of error** : 
+1. I create the database with my `root` user.
+2.  I create an `admin` user with a password
+3. I assign this user to my database 
+4. I edit the `.env` file to set up connection with my database locally
+
+``` DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=admin
+DB_PASSWORD=adminpassword
+```
+
+> Illuminate\Database\QueryException SQLSTATE[HY000] [1045] Access denied for user ‘admin’@‘localhost' (using password: YES) (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE') at vendor/laravel/framework/src/Illuminate/Database/Connection.php:703
+
+  ？What happens when I connect to my database CLI
+  👉🏽 [Connecting To The Database CLI](https://laravel.com/docs/8.x/database#connecting-to-the-database-cli)
+
+Le message d’erreur me permet de déterminer que le problème se situe au niveau de mon fichier `.env`
+
+```
+ mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+
+   Symfony\Component\Process\Exception\ProcessFailedException 
+
+  The command "'mysql' '--host=127.0.0.1' '--port=3306' '--user=admin' '--password=adminpassword' '--default-character-set=utf8mb4' 'laravel'" failed.
+```
+
+🔖 [Access denied for user 'admin'@'localhost' - Stackoverflow](https://stackoverflow.com/questions/43169240/php-artisan-migrate-sqlstatehy000-1045-access-denied-for-user-laravell)
+
+Alright, it seems like I cannot access my database with those variables:  `DB_USERNAME=admin` and `DB_PASSWORD=adminpassword ` 
+
+Let’s change those variables and see what Laravel’s Artisan CLI tells me when I launch with : `php artisan serve --port=8080`🪄
+
+  ```DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=thisismyverystrongmysqlpassword```
+
+✨ It works ! Okay on to the next step
+When I go to my page I get a new error in the browser from the PHP DebugBar.
+
+> SQLSTATE[42502]: Base table or view not found: 1146 Table 'laravel.movies' doesn't exist (`SQL: select * from 'movies'`).
+
+I created my database but they aren’t any tables 🗂 There’s no data ! 
+Hint : `SQL: select * from 'movies'`
+
+### Executing Migrations
+
+It's time to execute migrations and populate my database 🪄
+Let me look at the Laravel documentation 🤓 [Running Migrations](https://laravel.com/docs/8.x/migrations#running-migrations)
+
