@@ -591,6 +591,13 @@ I wrote a model factory and used Faker PHP Library to generate a bunch of random
 🔖 https://laravel.com/docs/10.x/eloquent-factories#main-content
 
 Once my factory is defined, I can use its global `factory` function in my seed files to generate model instances of user. 
+
+I used the PHP Artisan's Laravel Tinker in order to interact with my database on the commandline. I ran the factory below and specified its `count` record in order to generate five users. 
+
+### Writing Seeders
+
+Next, I generated a seeder for my testcase : `php artisan make:seed TestUserSeeder` and included the factory run inside its file. 
+
 ```
 class TestUserSeeder extends Seeder
 {
@@ -605,3 +612,6 @@ class TestUserSeeder extends Seeder
     }
 }
 ```
+
+
+
