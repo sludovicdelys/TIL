@@ -580,5 +580,28 @@ According to the Laravel documentation on [running migrations](https://laravel.c
 
 I don't have any errors popping up, but I don't have any data in my tables ! 🗂 
 
-I have written a few seeders with fake data, but I would like to include real movies. 
+I have written a few seeders with fake data, but I wanted to create some tests. 
 
+### Writing Factories 
+
+I wanted to insert dummy data in the database using Laravel's Factory and Seeder. I followed the [documentation](https://laravel.com/docs/5.7/database-testing#writing-factories) and [a tutorial from medium(https://medium.com/@shanisingh03/laravel-9-fake-data-testing-using-factory-seeder-f9fece67728b). 
+
+I wrote a model factory and used Faker PHP Library to generate a bunch of random data for testing and seeding
+
+🔖 https://laravel.com/docs/10.x/eloquent-factories#main-content
+
+Once my factory is defined, I can use its global `factory` function in my seed files to generate model instances of user. 
+```
+class TestUserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        User::factory()->count(5)->create();
+    }
+}
+```
