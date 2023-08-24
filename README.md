@@ -613,5 +613,40 @@ class TestUserSeeder extends Seeder
 }
 ```
 
+I populate my database with mock users' data by executing the seeder : `php artisan db:seed --class=TestUserSeeder`.
+I can attest that the test has worked successfuly because each of my user's password has been hashed. 
+
+### [Debug] Api BetaSeries Service
+
+>Only logged users can access the insert route for movies and series 
+
+When I try to search a new TV show, so that I can add it to my list I find there's a litte mishap 🐞
+
+> Undefined array key "shows"
+
+The PHPDebug Bar tells me thatthe key named 'shows' doesn't exist inside my `$serieAPIResult` array. 
+
+```
+return view('serie.searchAPI', [
+	'results' => $serieAPIResult['shows']
+]);
+
+```
+
+`$serieAPIResult` should have data that we received as a response to our call to the BetaSeries API. 
+
+```
+//Call to BetaSeries API using a GET method from Laravel's HTTP Facade.
+        $apiResponse = Http::get($this->urlBetaserie . "/shows/display", [
+            'key' => env('BETASERIES_API_KEY'),
+            'id' => $serieID
+        ]);
+```
+
+The culprit was the environment variable that stores the BetaSeries API key was missing ! Oops 🙈
+
+
+
+
 
 
