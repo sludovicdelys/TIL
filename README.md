@@ -36,7 +36,7 @@ Happy coding! 🚀
  	2. [Executing Migrations](#executing-migrations)
   	3. [Writing Factories](#writing-factories)
   	4. [Writing Seeders](#writing-seeders)
- 	4. [Api BetaSeries Service - Debug](#api-betaseries-service-debug)
+ 	5. [Api BetaSeries Service - Debug](#api-betaseries-service-debug)
 
 
 ## React
