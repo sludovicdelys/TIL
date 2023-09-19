@@ -32,7 +32,12 @@ Happy coding! 🚀
 7. [Advanced React and TypeScript Project](#advanced-react-and-typescript-project)
    	1. [Set up with Vite](#set-up-with-vite)
 8. [Ofilms a Laravel Project](#ofilms-a-laravel-project)
-	1. [Database Debug](#database-debug)
+	1. [Database - Debug](#database-debug)
+ 	2. [Executing Migrations](#executing-migrations)
+  	3. [Writing Factories](#writing-factories)
+  	4. [Writing Seeders](#writing-seeders)
+ 	4. [Api BetaSeries Service - Debug](#api-betaseries-service-debug)
+
 
 ## React
 
@@ -616,7 +621,7 @@ class TestUserSeeder extends Seeder
 I populate my database with mock users' data by executing the seeder : `php artisan db:seed --class=TestUserSeeder`.
 I can attest that the test has worked successfuly because each of my user's password has been hashed. 
 
-### [Debug] Api BetaSeries Service
+### Api BetaSeries Service - Debug
 
 >Only logged users can access the insert route for movies and series 
 
@@ -624,7 +629,7 @@ When I try to search a new TV show, so that I can add it to my list I find there
 
 > Undefined array key "shows"
 
-The PHPDebug Bar tells me thatthe key named 'shows' doesn't exist inside my `$serieAPIResult` array. 
+The PHPDebug Bar tells me that the key named 'shows' doesn't exist inside my `$serieAPIResult` array. 
 
 ```
 return view('serie.searchAPI', [
@@ -644,6 +649,51 @@ return view('serie.searchAPI', [
 ```
 
 The culprit was the environment variable that stores the BetaSeries API key was missing ! Oops 🙈
+
+Once I made sure that I was receiving data from the API, I proceeded to replace the Bulma styling with Bootstrap styling. 
+Everything seemed to work fine but when I returned on the import page and submitted my search nothing appeared on the page. 
+
+I also did not have a single error on my consoles. Catastrophe ! 
+
+So I proceeded to remove my Bootstrap styling and get the code back to its former state to see if it still worked with Bulma's classes. 
+
+```
+<form action="">
+    <div class="field">
+        <label class="label">Nom de la série</label>
+        <div class="control">
+            <input class="input" type="text" name="name" placeholder="Nom de la série" autocomplete="off">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-link">Rechercher</button>
+        </div>
+    </div>
+</form>
+```
+
+To my surprise, it did work. So I thought that I must have made a mistake with Bootstrap's form validation and its components. 
+
+After much inspection, I found that the problem was that I did not give the right name attribute for my `<input>` element. 
+My application was expecting a name attribute with a "name" value for the `<input>` element as my function `getSeriesByTitle` expects a name variable. 
+
+```
+public static function getSeriesByTitle(string $name)
+    {
+        // Si on en est là, le contenu de la recherche est validé et on peut faire l'appel à l'API
+        // en utilisant la facade Http de Laravel : https://laravel.com/docs/8.x/http-client
+        $apiResponse = Http::get('https://api.betaseries.com/search/shows', [
+            'key' => env('BETASERIES_API_KEY'),
+            'text' => $name
+        ]);
+        // On extrait les données de la réponse
+        return $apiResponse->json();
+    }
+```
+
+To correct it, I simply had to replace the value of the name attribute for my `<input>` element like so: `<input class="form-control" type="text" name="name" placeholder="Nom de la série" autocomplete="off" required>`
+
 
 
 
