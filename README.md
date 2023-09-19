@@ -621,7 +621,7 @@ class TestUserSeeder extends Seeder
 I populate my database with mock users' data by executing the seeder : `php artisan db:seed --class=TestUserSeeder`.
 I can attest that the test has worked successfuly because each of my user's password has been hashed. 
 
-### Api BetaSeries Service - Debug
+### Api BetaSeries Service Debug
 
 >Only logged users can access the insert route for movies and series 
 
