@@ -10,7 +10,7 @@ Happy coding! 🚀
 
 # Index
 1. [React](#react)
-	1. [Intro to React with a Tutorial](https://github.com/sludovicdelys/TIL/blob/main/react/intro_react.md)
+	1. [Intro to React with a Tutorial](React/intro_react.md)
 		1. [Overview](#overview)
 			1. [JSX](#jsx)
 		2. [Lifting State Up](#lifting-state-up)
