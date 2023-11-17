@@ -8,6 +8,9 @@ I've organized the content into an index, making it easy for you to navigate and
 
 Happy coding! 🚀
 
+P.S
+🌱 This emoji indicate the topics I am currently learning about.
+
 # Index
 1. [React](React)
 	1. [Intro to React with a Tutorial](React/intro_react.md)
@@ -37,6 +40,8 @@ Happy coding! 🚀
     3. [Writing Factories](OfilmsLaravel/o_film_laravel.md#writing-factories)
     4. [Writing Seeders](OfilmsLaravel/o_film_laravel.md#writing-seeders)
     5. [Api BetaSeries Service - Debug](OfilmsLaravel/o_film_laravel.md#api-betaseries-service-debug)
+9. [Administrez un système Linux](LinuxSystemAdmin/linux_system_admin.md) 🌱
+10. [Learn Python 2](Python/python.md)
 
 
 
