@@ -41,7 +41,7 @@ P.S
     4. [Writing Seeders](OfilmsLaravel/o_film_laravel.md#writing-seeders)
     5. [Api BetaSeries Service - Debug](OfilmsLaravel/o_film_laravel.md#api-betaseries-service-debug)
 9. [Administrez un système Linux](LinuxSystemAdmin/linux_system_admin.md) 🌱
-10. [Learn Python 2](Python/python.md)
+10. [Learn Python 2](Python/python.md)🌱
 
 
 
