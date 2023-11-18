@@ -1,16 +1,16 @@
-## React
+# React
 
-### [Intro to React with a Tutorial](https://reactjs.org/tutorial/tutorial.html)
+## [Intro to React with a Tutorial](https://reactjs.org/tutorial/tutorial.html)
 
   _04 June 2021_ 
 
-#### Overview
+### Overview
 
 A React component takes in parameters called ```props``` (refers to properties) and returns a hierarchy of views to display by using the ```render``` method. 
 
 The ```render``` method displays a lightweight description of what you want to see on the screen. It returns a **React element**. 
 
-##### JSX
+### JSX
 
 [JSX](https://reactjs.org/docs/introducing-jsx.html) is a syntax extension to JavaScript, mostly used in React to describe what the UI should look like. You can put any valid JavaScript expression inside JSX by wrapping it in curly braces. 
 
@@ -34,7 +34,7 @@ React components can 'remember things' by setting ```this.state``` in their cons
 
 When you call ```setState``` in a component, React automatically updates the child components inside of it too.
 
-#### Lifting State Up 
+### Lifting State Up 
  
 **To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
   
@@ -55,7 +55,7 @@ _June 07 2021_
 
 The ```[slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)``` method copies the values of an array into a new array. 
 
-#### Immutability
+### Immutability
 				
 _June 12 2021_
 
@@ -97,11 +97,11 @@ Detecting changes in immutable objects is easier. If the immutable object that i
 
 Immutability helps you build _pure components_ in React. Since immutability can determine if changes have been made, it helps to determine when a component requires re-rendering 
 
-#### Function Components
+### Function Components
 
 Functions components are a simpler way to write components that only have a ```render``` method and don't have their own state. Meaning we don't have to define a class which extends ```React.component```, we can write a function that takes ```props``` as input and returns whatever needs to be rendered. 
 
-#### Taking Turns 
+### Taking Turns 
 
 In the example below, each time a player moves, ```xIsNext``` will be flipped to determine which players goes next and the game's state will be saved.
 
@@ -126,11 +126,3 @@ I came across a syntax I was not familiar with on this line: ```this.state.xIsNe
 In the example above, the ternary operator (```?```) was used to add a condition on the left side (```this.state.xIsNext```), a value on the right side to return when the conditon is true (```'X'```). Then we add a colon ```:``` followed by a value to return if the condition is false (```'O'```). 
 
 [Source: freeCodeCamp](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript)
-
-#### [Keys](https://react.dev/learn/tutorial-tic-tac-toe#picking-a-key)
-
-> Keys tell React about the identity of each component, which allows React to maintain state between re-renders. If a component’s key changes, the component will be destroyed and re-created with a new state.
-
-> `key` is a special and reserved property in React. When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it is passed as props, React automatically uses `key` to decide which components to update. There’s no way for a component to ask what `key` its parent specified.
-
- 
