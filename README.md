@@ -44,6 +44,7 @@ P.S
     5. [Api BetaSeries Service - Debug](OfilmsLaravel/o_film_laravel.md#api-betaseries-service-debug)
 9. [Administrez un système Linux](LinuxSystemAdmin/linux_system_admin.md) 🌱
 10. [Learn Python 2](Python/python.md) 🌱
+11. [Deployed an app to Github Pages with Github Actions](https://github.com/sludovicdelys/tic-tac-toe#tic-tac-toe-)
 
 
 
