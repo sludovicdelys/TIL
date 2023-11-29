@@ -22,7 +22,7 @@ P.S
 		4. [Function Components](React/intro_react.md#L100)
 		5. [Taking Turns](React/intro_react.md#L104)
 			1. [Question Mark Operator in JavaScript](React/intro_react.md#L118)
-     		6. [Errors](React/intro_react.md)
+     		6. [Errors](React/intro_react.md#L136)
 	2. [Deployed an app to Github Pages with Github Actions](https://github.com/sludovicdelys/tic-tac-toe#tic-tac-toe-)		
 2. [CodeWars](CodeWars)
 	1. [String Functions and Operators](CodeWars/code_wars.md#L3)
