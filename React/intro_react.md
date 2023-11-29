@@ -126,3 +126,11 @@ I came across a syntax I was not familiar with on this line: ```this.state.xIsNe
 In the example above, the ternary operator (```?```) was used to add a condition on the left side (```this.state.xIsNext```), a value on the right side to return when the conditon is true (```'X'```). Then we add a colon ```:``` followed by a value to return if the condition is false (```'O'```). 
 
 [Source: freeCodeCamp](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript)
+
+#### [Keys](https://react.dev/learn/tutorial-tic-tac-toe#picking-a-key)
+
+> Keys tell React about the identity of each component, which allows React to maintain state between re-renders. If a component’s key changes, the component will be destroyed and re-created with a new state.
+
+> `key` is a special and reserved property in React. When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it is passed as props, React automatically uses `key` to decide which components to update. There’s no way for a component to ask what `key` its parent specified.
+
+ 
