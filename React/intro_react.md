@@ -53,7 +53,7 @@ To prevent JavaScript from breaking the code by inserting a semi-colon after ```
 
 _June 07 2021_
 
-The ```[slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)``` method copies the values of an array into a new array. 
+The [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method copies the values of an array into a new array. 
 
 ### Immutability
 				
@@ -126,3 +126,22 @@ I came across a syntax I was not familiar with on this line: ```this.state.xIsNe
 In the example above, the ternary operator (```?```) was used to add a condition on the left side (```this.state.xIsNext```), a value on the right side to return when the conditon is true (```'X'```). Then we add a colon ```:``` followed by a value to return if the condition is false (```'O'```). 
 
 [Source: freeCodeCamp](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript)
+
+### Picking a key 
+
+> Keys tell React about the identity of each component, which allows React to maintain state between re-renders. If a component’s key changes, the component will be destroyed and re-created with a new state.
+
+**It’s strongly recommended that you assign proper keys whenever you build dynamic lists. If you don’t have an appropriate key, you may want to consider restructuring your data so that you do.**
+
+### Errors 
+
+#### Error: error:0308010c:digital envelope routines::unsupported 
+
+Got an error after lauching `npm install` & `npm start`
+
+🔍 While investigating I had to look out for : 
+
+- ✅ A node.js version that is up to date => This is my current version : v18.15.0
+- 🐞 A `react-scripts` version that is up to date => It's the culprit, I did not have a 5+ version.
+
+I installed `react-scripts` because it was not present on my project at all. 
