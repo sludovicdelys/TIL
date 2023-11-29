@@ -14,7 +14,7 @@ P.S
 
 # Index
 1. [React](React) 🌱
-	1. [Intro to React with a Tutorial](React/intro_react.md)
+	1. [Intro to React with a Tutorial](React/intro_react.md) 🌱
 		1. [Overview](React/intro_react.md#L7)
 			1. [JSX](React/intro_react.md#L13)
 		2. [Lifting State Up](React/intro_react.md#L37)
@@ -23,7 +23,7 @@ P.S
 		5. [Taking Turns](React/intro_react.md#L104)
 			1. [Question Mark Operator in JavaScript](React/intro_react.md#L118)
      		6. [Errors](React/intro_react.md)
-   		7. [Deployed an app to Github Pages with Github Actions](https://github.com/sludovicdelys/tic-tac-toe#tic-tac-toe-)
+	2. [Deployed an app to Github Pages with Github Actions](https://github.com/sludovicdelys/tic-tac-toe#tic-tac-toe-)		
 2. [CodeWars](CodeWars)
 	1. [String Functions and Operators](CodeWars/code_wars.md#L3)
 	2. [Set](CodeWars/code_wars.md#L27)
