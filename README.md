@@ -13,8 +13,8 @@ P.S
 🌱 This emoji indicate the topics I am currently learning about.
 
 # Index
-1. [React](React) 🌱
-	1. [Intro to React with a Tutorial](React/intro_react.md) 🌱
+1. [React](React)
+	1. [Intro to React with a Tutorial](React/intro_react.md)
 		1. [Overview](React/intro_react.md#L7)
 			1. [JSX](React/intro_react.md#L13)
 		2. [Lifting State Up](React/intro_react.md#L37)
@@ -47,6 +47,8 @@ P.S
 10. [Learn Python 2](Python/python.md)
 11. Centre des données
     1. [Redondance](https://fr.wikipedia.org/wiki/Redondance_(centre_de_donn%C3%A9es))
+12. [Web knowledge](Web/web-knowledge.md)
+	1. [CSS-in-JS](Web/web-knowledge.md#css-in-js)
 
 
 
