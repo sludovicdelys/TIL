@@ -1,7 +1,7 @@
 # What is serverless ?
 
 ### 📚 Resources
-https://www.youtube.com/watch?v=vxJobGtqKVM
+[Ashher Syed from the IBM Cloud Team](https://www.youtube.com/watch?v=vxJobGtqKVM)
 
 **Bare metal**
 - You are managing and configuring the servers and the environment that you want to deploy your code on. 
@@ -41,4 +41,24 @@ In serverless computing, containers execute code in response to events (HTTP req
     - Serverless apps are Highly Available -> the cloud provider takes care of all the fault tolerance and the MZRs. All the services that you’re using in even driven architecture are fault tolerant
 
 > **Multi Zone Regions ->** 
-In the world of cloud computing, data centers are organized into regions. A region is a geographic area where multiple data centers are located and they are known as Availability Zones (AZs). They are physically seperated but connect with high speed network. An AZ, is designed to be isolated from failures in order to provie high availability and fault tolerance. “Multi-Zone Regions” means deploying your application accross multiple AZs within a single region. 
+In the world of cloud computing, data centers are organized into regions. A region is a geographic area where multiple data centers are located and they are known as Availability Zones (AZs). They are physically seperated but connect with high speed network. An AZ, is designed to be isolated from failures in order to provie high availability and fault tolerance. “Multi-Zone Regions” means deploying your application accross multiple AZs within a single region.
+
+# A serverless future outside the cloud ? 
+
+### 📚 Resources
+[Lucas Merdinian from Scaleway](https://www.scaleway.com/en/blog/futurofserverless/)
+
+Today it is a service provided only major cloud providers, but could we imagine Serverless services outside of that environment ? 
+
+## Self-managed Serverless
+The goal is to give companies all the advantages of Serverless (simplicity of use,  auto-scaling, scaling to zero …) without being bound to any cloud provider.
+ 
+Open source frameworks run Kubernetes for managing containerized applications, which still feels like serverless because it can provide a flexible and scalable platform for deploying and running serverless workloads even if it doesn’t handle infrastructure management. 
+
+Having serverless systems at company level can be cost efficient with the mutualization of infrastructures.   Cloud provider’s serveless services benefit the service consumers who only pay for the resources used, and the cloud provider that maximizes its resource usage. 
+
+In a self-managed context, these benefits apply only to the organization who can : 
+- optimize performance
+    - choose hardware of preference
+    - security constraints are less challenging on shared servers that run on the company’s own infrastructure instead of the cloud provider’s
+It’s a viable solution but requires sufficient human and infrastructure resources. 
