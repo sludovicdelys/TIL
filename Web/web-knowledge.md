@@ -14,7 +14,7 @@ Things developers should know when working withing web environments.
 
 The goal is to generate CSS rules directly from our JavaScript code. 
 
-### Render blocking and CSS ? 
+### Render blocking and CSS 
 
 Traditionally, the browser renders the HTML first and then the CSS resources. 
 
@@ -65,6 +65,9 @@ Runtime CSS-in-JS simply means that the library interprets and applies your styl
 
 > 🤿 You can checkout the section that focuses on the performance impact of Emotion, as it was used in the Spot codebase in Sam Magura's [article](This section focuses on the performance impact of Emotion, as it was used in the Spot codebase.)
 
+Splitting our CSS into small chunks and grouping them with their component will prevent the rendering of an element's styling if that element is not present. 
+
+It simplifies the way the app's styling is organized and eases the use of naming conventions
 
 
 
