@@ -46,8 +46,8 @@ In the world of cloud computing, data centers are organized into regions. A regi
 # A serverless future outside the cloud ? 
 
 ### 📚 Resources
-[Lucas Merdinian from Scaleway](https://www.scaleway.com/en/blog/futurofserverless/)
-[Mary Branscome from The New Stack](https://thenewstack.io/webassembly/what-is-webassembly/)
+- [Lucas Merdinian from Scaleway](https://www.scaleway.com/en/blog/futurofserverless/)
+- [Mary Branscome from The New Stack](https://thenewstack.io/webassembly/what-is-webassembly/)
 
 Today it is a service provided only major cloud providers, but could we imagine Serverless services outside of that environment ? 
 
