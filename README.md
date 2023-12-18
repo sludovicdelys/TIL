@@ -12,6 +12,10 @@ P.S
 
 🌱 This emoji indicate the topics I am currently learning about.
 
+TOREAD : 
+- [Serverless WebAssembly for Browser Developers](https://thenewstack.io/webassembly/serverless-webassembly-for-browser-developers/)
+- [What's the big idea behind ethereums world computer](https://www.coindesk.com/markets/2016/03/13/whats-the-big-idea-behind-ethereums-world-computer/)
+
 # Index
 1. [React](React) 🌱
 	1. [Intro to React with a Tutorial](React/intro_react.md)
