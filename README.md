@@ -55,7 +55,7 @@ TOREAD :
 	1. [Serverless](Cloud/serverless.md)
 14. [Drupal](Drupal)
 15. [Frameworks](Frameworks)
-    	1. [TailwindCSS](Frameworks/tailwind.md) 🌱
+	1. [TailwindCSS](Frameworks/tailwind.md) 🌱
 
 
 
