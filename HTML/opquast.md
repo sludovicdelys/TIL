@@ -37,11 +37,3 @@ In each of the pages evaluated, check that there is a full reference to the repr
 Inside the source code of each page that is examined: 
 - Check the presence of a tag `<meta name="description" content="" />
 - Check that the text of this tag describe effectiveley, in a specific manner or more generic, the content of the page.
-
-## AlgoExpert
-
-_09 Aug 2023_
-
-I have started practicing my algorithm solving skills, and I am currently working on arrays which have been proven to be quite mentally taxing although I am only on the easy section of the website. I have been looking at the solutions every time, and asking ChatGPT (This is not a very eco friendly learning practice 😣) to explain bits of code I do not understand. 
-
-I'll be keeping a record of the algorithms I come accross for future reference and to be able to reflect on them. 

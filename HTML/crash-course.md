@@ -1,9 +1,9 @@
 # HTML Crash Course
 
-## Useful links 
+### Useful links 
 - [HTML Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html%23the-em-element)
 
-## Key Terms 
+## HTML Basics
 
 > **HTML**
 
@@ -59,6 +59,8 @@ They are tons of circumstances where somebody might need to see your HTML code o
 
 For example, when somebody is using a screen reader, they won’t be able to visually see how the browser displays things, and we need to make sure that the HTML is semantically correct that way the screen reader knows what to tell that user. 
 
+## Semantic HTML
+
 > **Semantic HTML**
 
 HTML looses its semantic meaning when tags are misused, or generic tags (namely `<div>` and `<span>`) are overused instead of semantic tags. 
@@ -74,6 +76,8 @@ Semantic HTML includes the usage of *semantic grouping tag*, which give meaning 
 - `<footer>` : Footer of the document, oftentimes containing copyright information. 
 
 Semantic markup is important and tags provide content structure, not layout or style
+
+## Essential HTML Tags
 
 > `<p>` 
 
@@ -154,7 +158,9 @@ The emphasis tag, usually rendered as italics by default in the browser. We want
 
 > `<strong>`
 
-The strong tag, usually rendered as bold by default in the browser. We want to use it when it has semantic `<strong>importance</strong>`. 
+The strong tag, usually rendered as bold by default in the browser. We want to use it when it has semantic `<strong>importance</strong>`.
+
+## Tables
 
 > `<table>`
 
@@ -168,3 +174,71 @@ There are a variety of tags associates with tables, with these being some of the
 - `<tbody>` : A grouping tag for the body of the table, used for containing the primary rows of data. 
 - `<tfoot>` : A grouping tag for the footer of the table. 
 - `<caption>` : A caption or title for the table. 
+- `<colgroup>` : A grouping tag that allows you to select the columns of the table. It is used mostly for CSS, and we don't need it for the proper semantic markup of our HTML.
+
+The `colspan` attribute indicates how many columns the data cells spans or extends and the `rowspan` attribute indicate the same for rows. 
+
+## Forms 
+
+> `<form>`
+
+An HTML tag for a section of interactive inputs, used for submitting information to the server. Forms usually contain a variety of label-input pairs and a submit button. 
+
+```
+<form>
+  <div>
+    <label for="username">Enter your username: </label>
+    <input id="username" type="text" placeholder="user123" name="username" required />
+  </div>
+  <div>
+    <label for="password">Enter your password: </label>
+    <input id="password" type="password" name="password" minlength="6" required />
+  </div>
+
+  <button>Submit<button>
+</form>
+```
+
+The default behavior of the submit button is to send the username and the password to the URL. If you want the behavior to be different like sending the action to an API you can use the `action` and `method` attributes in the the `<form>` tag. 
+
+For example : `<form action="/my=api" method="POST"></form>`
+
+You can also put validation attributes on the `<input>` tags such as the `required` and `minlength` attributes. 
+
+For example : `<input id="password" type="password" name="password" minlength="6" required />`
+
+You can also use the `<fieldset>` grouping tag to contain form inputs and their labels. We also usually add a title for the fieldset with the `<legend>` tag.
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+
+## Document Object Model
+The programming interface for interacting with an HTML document represented as a tree data structure. Each HTML element in the document is a node in the DOM tree, with nested content represented as children in the tree. 
+
+The DOM has a few different purposes : 
+1. Allows the browser to keep track of what's on the page.
+2. Provides an API that we can interact with via JavaScript (or any other programming language).
+3. When we interact wit the DOM as an API, we interact with it as a tree. That is how it is storing our HTML file. 
+
+** How does it work ? ** 
+It stores each of the elements in our HTML file (each tag) as an **element node** in the tree. Note that text will also be stored as a **text node**. 
+
+> 💡 Whitespaces such as spaces, tabs and line breaks are considered part of the text content within HTML elements and are represented as **Text Nodes**. **Attribute Nodes** represent attributes of HTML elements for example `id`, `class`, `src`, `href`, etc... . **Comment Nodes** represent comments within the HTML markup.
+
+```
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Webpage</title>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+		<p>
+			Hello, <br />
+			How are you?
+		</p>
+	</body>
+</html>
+```
+
+![Dom Tree representation of code example](./dom-tree.png "Dom Tree example")
+
