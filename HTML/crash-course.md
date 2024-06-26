@@ -242,3 +242,29 @@ It stores each of the elements in our HTML file (each tag) as an **element node*
 
 ![Dom Tree representation of code example](./dom-tree.png "Dom Tree example")
 
+## Accessibility 
+Building applications usable by as many people as possible. Oftentimes this means utilizing semantic HTML and esuring the application works properly with various assisstive technologies. 
+
+> Accessibility Tree 
+A tree representatio of the page focusing on information specific to accessibility. Each node in this tree contains information such as the _role_, _state_, _name_ and _description_. 
+
+The accessibility is created from the DOM tree and kept in sync with it. Assistive technologies such as screen readers interact with the accessibility tree rather than directly with the DOM. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree
+
+![Accessibility Tree representation of code example](./accessibility-tree.png "Dom Tree example")
+
+
+> WAI-ARIA
+The "Web Accessibility Initiative - Accessible Rich Internet Applications" specification for accessible HTML created by the World Wide Web Consortium (W3C). Oftentimes referred to as just ARIA, this contains a set of HTML attributes that can be added to provide extra information to the **accessibility tree**. 
+
+- **Roles** : What the element is doing, used to define the purpose of the element. These can be broken down into a few main subgroups: 
+	- **Landmark** : Major content areas, navigational landmarks. 
+	- **Structure** : Document structure information. 
+	- **Widget** : Interactive element. 
+	- **Window** : Sub-windows in the browser. 
+	- **Live Region** : Regions with dynamically changing content. 
+- **Properties** : Extra meaning and characteristics of the element, such as labels. 
+- **States** : Current state of the element, such as if it is disabled. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics
