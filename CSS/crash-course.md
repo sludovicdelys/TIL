@@ -194,6 +194,29 @@ Hexadecimal tends to be the most common. However, the RGB values or the HSL vlue
 
 > Just make sure you are being consistent within the project.
 
+## Block vs. Inline
+
+> **Block Element**
+
+An element with its `display` property set to `block`. These have a few key properties: 
+- They start on new lines. 
+- By defaults they span the entire width of their parent. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
+
+> **Inline Element**
+
+An element with its `display` property set to `inline`. These have a few key properties: 
+- They start immediately after the content before them, without a new line. 
+- They span the width of their content. 
+- `width` and `height` properties have no effect on them. 
+
+> **Inline-Block Element**
+
+An element with its `display` property set to `inline-block`. These have a few key properties: 
+- They start immediately after the content before them, without a new line. 
+- They span the width of their content by default, but this can be changed. 
+
 
 
 
