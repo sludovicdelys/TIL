@@ -69,3 +69,42 @@ Attribute selectors can also use special syntax for basic pattern matching withi
     - **Adjacent sibling combinator**: Represented by `+`, in the format `selector1 + selector2`. Selects all elements that match `selector2` and have an element matching `selector1` directly  before them in the DOM. 
 
     Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+
+    ## Pseudo Classes And Elements
+
+    > **Pseudo Class**
+    An addition to CSS selector for selecting base on the current state of the element. These start with `:`, so for example `button:hover` would select buttons currently hovered over. 
+
+    Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+    > **Pseudo Element**
+    An addition to a CSS selector for selecting a specific portion of the element. These start with `::`, so for example `p::first-letter` would select the first letter of paragraphs. 
+
+    `::before` and `::after` are special pseudo element that insert children before or after the content of the element, allowing for styling before or after the content. This is oftenties sued with the CSS `content` property, but not always. 
+
+    Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+
+    ## Selector specificity 
+
+    > **Specificity** 
+    The algorithm used by the browser to determine which CSS declarations to use when an element is selected by two rulsets with the same property. 
+
+    > The most specific selector is the on that gets used. By default, if all of the selectors had the same specificity then it will just use whichever one was last in the file that is is reading. 
+
+    Specificity is roughly calculated by counting the number of each selector type involved in a selector and multiplying it by a weight. 
+
+    These weights are as follows : 
+    - **Inline Styles** : 1000
+    - **IDs** : 100
+    - **Classes** : 10
+    - **Pseudo-Classes** : 10
+    - **Attributes** : 10
+    - **Elements** : 1
+    - **Pseudo-Elements** : 1
+
+     > 💡 To override a declaration of a CSS library without worrying about the specificity of the library's selector we use `!important`. This goes after the value but before the semi-colon. It is still important to avoid using it if we're using pure CSS before we have full control over all of it and we should be using specifity as an advantage. 
+
+    Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+
+   
+
