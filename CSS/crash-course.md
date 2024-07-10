@@ -215,7 +215,58 @@ An element with its `display` property set to `inline`. These have a few key pro
 
 An element with its `display` property set to `inline-block`. These have a few key properties: 
 - They start immediately after the content before them, without a new line. 
-- They span the width of their content by default, but this can be changed. 
+- They span the width of their content by default, but this can be changed.
+
+## Box Model
+
+> **Box Model**
+A box surrounding all elements on the document used for layout. From inside to out, this consists of the **content**, **padding** and **margin**. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
+
+> **padding** 
+A property used to create extra space within an element, between **content** and **border**. The `padding` CSS property is a shorthand for `padding-top`, `padding-right`, `padding-bottom` and `padding-left` in that order. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+
+> **border**
+A property used to create a border around the content and padding of an element. The `border` CSS property is a shorthand for `border-color`, `border-style` and `border-width`, which it takes as space seperated values in any order. For example, `border: 1px solid black` would create a one pixel, solid black border. 
+
+A `border-radius` can also be used to create rounded corners on an element, regardless of if it has a border. This defines the radius of the corners, and a value of `50%` is often used on sqaure elements to create a circle. 
+
+Additionally, `border-top`, `border-right`, `border-bottom` and `border-left` can be used to set borders on a single side of an element. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/border
+
+> **margin**
+A property used to create extra space around an element. The `margin` CSS property is a shorthand for `margin-top`, `margin-right`, `margin-bottom` and `margin-left` in that order. 
+
+A value of `auto` can also be used to allow the browser to choose margins, which will usually center block elements horizontally.
+
+Adjacent horizontal margins will be added together to determine the space between elements. Vertical margins on the other hand will usually be collapsed, meaning only the larger margin value will be used. 
+
+> 💡 Vertical margins and paddings have no effect on inline elements. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+
+## Box Sizing 
+
+> **box-sizing**
+A CSS property for specifying how width and height should be calculated for the selected element. The default value is `content-box` for most elements, which sets the width and height to only control the size of the content. 
+However, a value of `border-box` would include the size of the padding and border. 
+
+For example, if an element has : 
+```html
+width: 100px;
+padding: 12px;
+border: 24px;
+```
+then with `box-sizing: content-box` it would take up a total of 172px of width (note this includes padding and border twice to account for the left and right side). However, with `box-sizing: border-box` it would take up a total width of `100px`. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
+
+
 
 
 
