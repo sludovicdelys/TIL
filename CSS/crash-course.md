@@ -220,16 +220,19 @@ An element with its `display` property set to `inline-block`. These have a few k
 ## Box Model
 
 > **Box Model**
+
 A box surrounding all elements on the document used for layout. From inside to out, this consists of the **content**, **padding** and **margin**. 
 
 Learn more : https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
 
 > **padding** 
+
 A property used to create extra space within an element, between **content** and **border**. The `padding` CSS property is a shorthand for `padding-top`, `padding-right`, `padding-bottom` and `padding-left` in that order. 
 
 Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 
 > **border**
+
 A property used to create a border around the content and padding of an element. The `border` CSS property is a shorthand for `border-color`, `border-style` and `border-width`, which it takes as space seperated values in any order. For example, `border: 1px solid black` would create a one pixel, solid black border. 
 
 A `border-radius` can also be used to create rounded corners on an element, regardless of if it has a border. This defines the radius of the corners, and a value of `50%` is often used on sqaure elements to create a circle. 
@@ -239,6 +242,7 @@ Additionally, `border-top`, `border-right`, `border-bottom` and `border-left` ca
 Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/border
 
 > **margin**
+
 A property used to create extra space around an element. The `margin` CSS property is a shorthand for `margin-top`, `margin-right`, `margin-bottom` and `margin-left` in that order. 
 
 A value of `auto` can also be used to allow the browser to choose margins, which will usually center block elements horizontally.
@@ -252,6 +256,7 @@ Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/margin
 ## Box Sizing 
 
 > **box-sizing**
+
 A CSS property for specifying how width and height should be calculated for the selected element. The default value is `content-box` for most elements, which sets the width and height to only control the size of the content. 
 However, a value of `border-box` would include the size of the padding and border. 
 
@@ -264,6 +269,28 @@ border: 24px;
 then with `box-sizing: content-box` it would take up a total of 172px of width (note this includes padding and border twice to account for the left and right side). However, with `box-sizing: border-box` it would take up a total width of `100px`. 
 
 Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
+## Position 
+
+> **position**
+
+A CSS property for setting how the browser should position an element in the document. This defaults to `static`, but can take a variety of values : 
+- **static** : The default value, the element follows the flow of the document.  
+- **fixed** : The element is positioned relative to the viewport and removed from the normal flow of the document. The `top`, `left`, `right`, and `bottom` properties can then be used to move the element.
+- **relative** : The element is positioned in the same place as it would be with **static**, however, it can be repositioned with `top`, `left`, `right` and `bottom` relative to its natural position on the document. 
+- **sticky** : The element will act similar to a **relative** positioned element, but once it scrolls off screen it will stay fixed to the screen, essentially acting as a `position: fixed`. This is particularly useful for menu bars that need to "stick" to the top of the screen as the user scrolls. 
+- **absolute** : By default, this will act the same as **fixed**, except the element will be positioned relative to the document instead of the viewport. This means that, as the page is scrolled, it will move with the page rather than stay at the same viewport location. However, if any element above it in the DOM, oftentimes referred to as an _ancestor_, has a position value other than static, then it will be positioned relative to the nearest positioned ancestor. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
+## Stacking Context 
+A grouping of elements positioned together on the z-axis. Stacking  contexts can be nested within other stacking contexts, and `z-index` values are used to determine the layering of elements with the same **stacking context parent**. 
+
+Learn more : https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+
+
+
+
 
 
 
