@@ -10,6 +10,8 @@ A React component takes in parameters called ```props``` (refers to properties) 
 
 The ```render``` method displays a lightweight description of what you want to see on the screen. It returns a **React element**. 
 
+React is modulrar, scalable, flexible, and a popular front-end framework. 
+
 ### JSX
 
 [JSX](https://reactjs.org/docs/introducing-jsx.html) is a syntax extension to JavaScript, mostly used in React to describe what the UI should look like. You can put any valid JavaScript expression inside JSX by wrapping it in curly braces. 
@@ -19,6 +21,78 @@ Example:
 const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
 ```
+
+* JSX allows us to treat HTML as expressions.
+  * They can be stored in variables, objects, arrays, etc...
+* JSX elements can have attributes and be nested, just like in HTML.
+* JSX must have exactly one outer element, and other elements can be nested inside.
+* `createRoot()` from `react-dom/client` can be used to create a React root at the specified DOM element.
+* A React root's `render()` method can be used to render JSX on the screen.
+* A React root's `render()` method only updates DOM elements that have changed using the virual DOM.
+
+#### Virtual Dom 
+Some front-end frameworks like Vue.js & React.js create their own representation of the DOM as a JavaScript object. Whenever a change is made to DOM, the framework makes a copy of that JavaScript object, makes the change to that copy and compares it the two JavaScript objects to see what has changed. It informs the browser of these changes and only those parts of the DOM are repainted. 
+
+By comparing the new virtual DOM with a pre-update version, React figures out exactly which virtual DOM objects have changed. This process is called “**diffing**.”
+
+```javascript
+{
+	type:'body',
+	children: [
+		{type:'h1',text:'Things to Learn'},
+		{type:'ul',children[
+			{type:'li',text:'JavaScript', children:[...]}
+			{type:'li',text:'Python', children:[...]}
+			{type:'li',text:'Ruby', children:[...]}
+		]
+	]
+}
+```
+1) Prevents unecessary repaints
+2) Only repaints updated elements
+3) Groups together repaints
+
+### Advanced JSX
+* Use `className`instead of `class`
+* You _have_ to include the slash on self closing tag in JSX. For example : `<br />`
+* Inject regular JavaScript into JSX expressins with curly braces. For example : `<p>{2+3}</p>` will render 5.
+  * The curly braces themselves won't be treated as JSX or JS, they are markers that signal the beginning and end of a JavaScript injection into JSX, similar to the quotation marks that signal the boundaries of a string.
+* You can use variables and object properties to set attributes when writing JSX
+* You create an event listener by giving a JSX element a special attribute.
+  * An event listener attribute’s name should be something like onClick or onMouseOver: the word on plus the type of event that you’re listening for.
+* You cannot inject an if statement into a JSX expression !
+  * One option is to write an if statement and not inject it into JSX.
+  * A more compact way to write conditionals in JSX is to use the _ternary operator_.
+  * Another way of writing conditionals in React is the && operator.
+* If you want to create a list of JSX elements, then using .map() is often the most efficient way.
+  * For example :
+    ```
+	const strings = ['Home', 'Shop', 'About Me'];
+	
+	const listItems = strings.map(string => <li>{string}</li>);
+	
+	<ul>{listItems}</ul>
+    ```
+* A key is a JSX attribute. The attribute’s name is key. The attribute’s value should be something unique, similar to an id attribute
+  * Not all lists need to have keys. A list needs keys if either of the following is true:
+    - The list items have memory from one render to the next. For instance, when a to-do list renders, each item must “remember” whether it was checked off. The items shouldn’t get amnesia when they render.
+    - A list’s order might be shuffled. For instance, a list of search results might be shuffled from one render to the next.
+* The majority of React programmers do use JSX, but you should understand that it is possible to write React code without it.
+  ```
+  The following JSX expression:
+
+	const h1 = <h1>Hello world</h1>;
+  
+  can be rewritten without JSX, like this:
+
+	const h1 = React.createElement(
+	  "h1",
+	  null,
+	  "Hello world"
+	);
+  ```
+
+_______
 
 Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called ```components``` that contain both:
   * [seperation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. 
