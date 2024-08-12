@@ -97,3 +97,22 @@ There are two main rules to keep in mind when using Hooks:
 * Only call Hooks from React functions.
 
 When React builds the Virtual DOM, the library calls the functions that define our components over and over again as the user interacts with the user interface. React keeps track of the data and functions that we are managing with Hooks based on their order in the function component’s definition.
+
+```
+
+// Instead of confusing React with code like this:
+if (userName !== '') {
+ useEffect(() => {
+   localStorage.setItem('savedUserName', userName);
+ });
+}
+
+// We can accomplish the same goal, while consistently calling our hook every time:
+useEffect(() => {
+ if (userName !== '') {
+   localStorage.setItem('savedUserName', userName);
+ }
+});
+
+Secondly, Hooks can only be used in React Functions. We’ve been working with useState() and useEffect() in function components, and this is the most common use. The only other place where Hooks can be used is within custom hooks
+```
