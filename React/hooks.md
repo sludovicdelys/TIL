@@ -116,3 +116,65 @@ useEffect(() => {
 
 Secondly, Hooks can only be used in React Functions. We’ve been working with useState() and useEffect() in function components, and this is the most common use. The only other place where Hooks can be used is within custom hooks
 ```
+
+## Seperation of Concerns & React Patterns
+
+**Challenge #1**
+
+Let’s define a component that uses:
+
+* an event listener on the document element to track mouse position
+* a network request to fetch JSON data from a server
+* state to track both of these values between renders
+
+Which of the following patterns gives us the greatest separation of concerns?
+
+> 1. Use a State and Effect Hook for managing the position data, then another State Hook and Effect Hook for managing the JSON data.
+
+> 2. An Effect Hook for managing all of the component’s side effects and a State Hook for managing all of our component’s data.
+
+> 3. An Effect Hook for managing all of the component’s side effects and two State Hooks, one for storing the data from the server and one for keeping track of the position of the mouse based on the document events.
+
+> 4. Use one State Hook for managing all of our component’s data and two Effect Hooks, one for fetching the JSON and one for adding and removing the event listener.
+
+**Now, let's cook up an explanation!**
+
+Imagine your React component is a gourmet dish, and each part of state and each effect is an ingredient. The goal is to create a delicious, well-organized meal (component) that's easy to understand, modify, and scale up.
+
+**1. Pattern 1: The Michelin Star Approach 🌟**
+This is like having separate stations in your kitchen:
+
+One for tracking mouse position (let's call it the "Mouse Soufflé")
+Another for fetching JSON data (the "Data Tartare")
+
+By separating these, you can:
+
+Perfect each "dish" independently
+Easily swap out ingredients (change implementation)
+Have different chefs (developers) work on different parts
+
+**2. Pattern 2: The One-Pot Wonder 🥘**
+Everything goes into one big pot:
+
+All effects in one useEffect
+All state in one useState
+
+While it might seem simpler, it's like trying to cook a steak and bake a cake in the same pan. It works, but it's messy and hard to manage as your recipe (component) grows.
+
+**3. Pattern 3: The Semi-Separated Approach 🍲**
+
+This is like having one big cooking pot for all your effects, but separate serving bowls for different types of state. It's better than Pattern 2, but still not ideal.
+
+**4. Pattern 4: The Mise en Place 🍱**
+
+This is close to Pattern 1, but with all state in one place. It's like having all your ingredients pre-measured in one area, but still cooking different elements separately.
+
+The winner? Pattern 1! 🏆
+Why? It's all about **separation of concerns**. Just like in a professional kitchen where you have different stations for different types of dishes, in React, separating your effects and state by functionality makes your code:
+
+Easier to understand (each "station" has a clear purpose)
+Easier to test (you can "taste-test" each part separately)
+Easier to reuse (you can "serve" the mouse position logic in another "dish"/component)
+Easier to maintain (if the "Mouse Soufflé" burns, it doesn't ruin the whole meal)
+
+Remember, in the world of React cuisine, clean, well-organized code is the secret ingredient to a five-star app! 🌟👨‍🍳
