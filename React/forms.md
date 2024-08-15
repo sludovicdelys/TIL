@@ -46,3 +46,11 @@ Most React components are controlled.
 In React, when you give an <input> element a value attribute, then something strange happens: the <input> element becomes controlled. 
 It stops using its internal storage. 
 This is a more “React” way of doing things.
+
+🤔 **Do controlled and uncontrolled just mean stateless and stateful?**
+
+Controlled and uncontrolled are always used in the context of React forms, which can be stateless or stateful. However, controlled and uncontrolled components are usually attributed with a stateless and a stateful nature, respectively.
+
+A controlled component has its state controlled from outside. Because of this, controlled components are usually stateless as they do not store their own state and receive it from a parent component.
+
+Uncontrolled components are essentially stateful, as they store and maintain their own internal state.
