@@ -54,3 +54,10 @@ Controlled and uncontrolled are always used in the context of React forms, which
 A controlled component has its state controlled from outside. Because of this, controlled components are usually stateless as they do not store their own state and receive it from a parent component.
 
 Uncontrolled components are essentially stateful, as they store and maintain their own internal state.
+
+## Review 
+
+1. The state of a React form is managed by the component, and updates are triggered by the `onChange` event.
+2. The `onChange` event uses an event handler to capture changes and determine what actions to take.
+3. A React form uses the State hook to store the value of the input field in the component’s state. The state can then be updated with the state setter.
+4. React components can be controlled or uncontrolled. Most React forms are controlled, as they control the input’s value with the state.
