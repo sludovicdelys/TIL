@@ -1,6 +1,65 @@
 # Web knowledge
+Things developers should know when working within web environments.
 
-Things developers should know when working withing web environments.
+## Overview of the Internet
+
+### Hello, Internet !
+More than four billion people around the world are internet users and the total number of websites on the world wide web is nearing two billion.
+
+> **Good to know** 💡: You don’t need to be an engineer to benefit from understanding how the internet works. However, understanding the internet’s infrastructure will help you decide if learning web development is right for you.
+
+### The Ever-Expanding Network 
+So how did the internet start? 
+
+In 1969, the United States Department of Defense funded the creation of ARPANET, a precursor network to the internet. ARPANET stands for Advanced Research Projects Agency Network. 
+
+These institutions wanted to connect their individual networks for large-scale information transfer. However, many of them followed different standards and technical implementations.
+
+In the 1970s, the transmission control protocol and internet protocol, otherwise known as TCP/IP, were created to provide standards around the transfer of data that would allow these early networks to communicate with each other. 
+
+TCP/IP was researched and specified throughout the 1970s and adopted in the early 1980s. As different networks adopted TCP/IP, the interconnected global network of networks that is today known as the internet was formed.
+
+### The World Wide Web 
+The internet refers to the actual network of connected computing devices.
+
+Engagement with the internet changed in 1989 when Tim Berners-Lee invented the world wide web. The world wide web is a collection of interlinked websites and other web resources.
+
+The world wide web, in combination with the rise of web browsers in the 1990s, introduced a user-friendly interface that enabled users to browse multimedia content and interact with other users.
+
+### Browsers and Servers
+
+In the client-server model, the client refers to the user’s device or program that is making a request for data. A client can be a browser or application running on a user’s laptop, smartphone, or tablet.
+
+The server is the device or program in that network that waits for incoming requests and sends back data. This might be an in-house server, a rented server at a data center, or cloud server.
+
+### Web 2.0
+The earliest static websites were composed of text, images, and links, with very little interactivity beyond browsing from one page to another. These websites are called static, which means lacking in movement because they do not change based on user behavior.
+
+A collection of advances in the early 2000s created a cluster of web applications that are often called “Web 2.0”. In comparison to early static websites, Web 2.0 applications are often defined by:
+
+- In the early web, user input would typically take the user to a new page — and they would have to wait for the new page to load. In Web 2.0, websites could just update selected regions of the page, avoiding the interruption caused by reloading.
+
+- In the early web, content was generally authored by a single source. The rise of blogging, social media, and wikis in web 2.0 meant that users could generate content and share it with their friends.
+
+There were important technical advances that enabled each of these advances in the user interface of the internet. For example:
+
+jQuery was the first JavaScript framework that could fetch data while the web page is running.
+The rise of web frameworks that connected to databases, like Spring, Django, and Ruby-on-Rails, enabled user-generated content to effectively be created, stored, and displayed.
+
+### 404 Status Code
+When a server responds to a client, the server specifies a status code as a part of the response. Status codes indicate whether or not the HTTP request was successfully completed and if there was an error, they contain some information about the type of error that happened. The status code helps the browser know how to handle the data that was sent back with the response.
+
+### Current Internet Trends 
+The rise of internet-connected smartphones has profoundly changed how users interact with the internet. 
+
+#### Responsive Web Design 
+Responsive web design was enabled by additions to the CSS language, like media queries and relative units. These additions allow the presentation of websites to adjust based on the size of the window in which they are displayed.
+
+#### Mobile Applications and Devices
+Users accessing the internet on smartphones are likely to spend much more time with specific applications, rather than using their phone’s browser. 
+
+>**Good to know**💡 Though most mobile applications are internet connected, they are not part of the world wide web. The web is built out of links, whereas mobile applications are designed to keep the user’s attention.
+
 
 ## CSS-in-JS
 
