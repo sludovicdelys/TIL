@@ -40,3 +40,135 @@ We call these methods by appending an instance with :
 * opening and closing parentheses
 
 > JavaScript is case sensitive so all methods and functions must be written the way they appear in the specs.
+
+### ES6 Features
+
+First, let’s bring in some history. JavaScript was introduced in 1995 by the company Netscape Communications as a scripting language for web designers and programmers to interact with web pages. The next year, Netscape submitted JavaScript to a standards developing organization called Ecma International to create standards for a scripting language (a type of programming language). In 1997, Ecma International released ECMA-262 which sets standards for the first version of a scripting language called ECMAScript, shortened to ES.
+
+These new ECMAScript standards provided rules for the architecture of JavaScript features.
+
+To fully distinguish the difference between JavaScript and ECMAScript: if you want to create an app or program you can use JavaScript — if you want to create a new scripting language you can follow the guidelines in ECMAScript. 
+
+ES6 is actually the biggest update made to ECMAScript since the first edition released in 1997! Some developers even refer to ES6 as “Modern JavaScript” because of all the major additions. There were so many great features added to help JavaScript developers that include:
+
+- new keywords like `let` and `const` to declare variables
+- new function syntax using Arrow functions
+- creation of Classes
+- parameters with default values
+- promises for asynchronous actions
+- and many more!
+
+Let's cover the important ones : 
+
+1. Let and Const :
+```javascript
+let variable = 'can be reassigned';
+const constant = 'cannot be reassigned';
+```
+
+2. Arrow Functions :
+```javascript
+const add = (a, b) => a + b; 
+```
+
+3. Template Literals :
+```javascript
+const name = 'World'; 
+console.log(`Hello, ${name}!`);
+```
+
+4. Destructuring :
+```javascript
+const [first, second] = [1, 2];
+const {name, age} = {name: 'John', age: 30};
+```
+
+5. Spread Operator :
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+```
+
+6. Default Parameters :
+```javascript
+function greet(name = 'Guest') {
+    console.log(`Hello, ${name}!`);
+}
+```
+____
+Exercise : 
+Write a function that takes an array of numbers and returns a new array with each number doubled. Use arrow function syntax and the map method.
+
+```javascript
+function newArray(arr) {
+  let newArr = arr.map((number) => number * 2); 
+  return newArr; 
+}
+```
+
+Other solutions : 
+
+```javascript
+function newArray(arr) {
+  return arr.map((number) => number * 2);
+}
+```
+
+```javascript
+const newArray = (arr) => arr.map((number) => number * 2);
+```
+
+____
+
+7. Array Destructuring :
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers;
+console.log(first);  // 1
+console.log(second);  // 2
+console.log(rest);  // [3, 4, 5]
+```
+
+8. Object Destructuring : 
+```javascript
+const person = {
+    name: 'John Doe',
+    age: 30,
+    city: 'New York'
+};
+const {name, age} = person;
+console.log(name);  // 'John Doe'
+console.log(age);  // 30
+```
+
+You can also use destructuring in function parameters : 
+```javascript
+function printPersonInfo({name, age}) {
+    console.log(`${name} is ${age} years old.`);
+}
+printPersonInfo(person);  // 'John Doe is 30 years old.'
+```
+
+_____
+
+Exercise: 
+
+Write a function called getHighScorer that takes an array of objects representing players (each with 'name' and 'score' properties) and returns an object with two properties: the name of the player with the highest score, and their score.
+
+```javascript
+function getHighScore(players) {
+  const sortedPlayers = players.sort((a, b) => b - a); 
+  return ({name, score} = sortedPlayers[0]); 
+}
+```
+
+Alternatively, you could write it without sorting the entire array, which would be more efficient for large arrays :
+
+```javascript
+function getHighScorer(players) {
+  const highScorer = players.reduce((highest, player) => 
+    player.score > highest.score ? player : highest
+  );
+  return { name: highScorer.name, score: highScorer.score };
+}
+```
