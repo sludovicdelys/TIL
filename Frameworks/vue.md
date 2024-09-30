@@ -17,6 +17,23 @@ The Vue team recognized that many complex front-end features aren’t useful unt
 
 ## Creating Vue Apps
 
+Vue makes it easy to make a new app by exporting a class called `Vue`. Much like any other JavaScript class, we create instances of this class using the `new` keyword. Each of these `Vue` instances is a fully-functioning Vue app.
+
+```javascript
+// app.js
+const app = new Vue({              //Creates new Vue app
+  el: '#app',                      //Options Object
+  data: { username: 'michael' },   //contains all information about the Vue app
+  ...
+});
+```
+
+The `Vue` constructor can set many properties on our `Vue` app when it is called. However, unlike many constructors, the `Vue` class does not take each of these properties as separate arguments.
+
+> 💡 Vue apps require a lot of information — information that will differ greatly from app to app. To accommodate this, the Vue constructor doesn’t attempt to take in each piece of information as its own parameter. This would require developers to keep careful track of which order arguments were expected in, making it difficult to add properties or make changes.
+
+The Vue constructor takes in only one object, called the **options object**. Each piece of information the Vue app needs to function is added to the options object as a key-value pair. This means that developers can easily update or add information in the Vue app by just looking for the correct key in the options object.
+
 ## Components 
 
 ### Naming
