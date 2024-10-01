@@ -92,7 +92,17 @@ Apps need to display many pieces of dynamic data. To accommodate this, the value
 
 > 💡 Note: In most apps, your code would likely get this data from a database.
 
+### Templates
 
+Vue makes use of **templating**, meaning that the developer specifies certain content in our HTML that isn’t meant to be displayed literally but rather substituted out with the appropriate data from the app. We specify which content inside our HTML should be substituted by surrounding it in two layers of curly brackets, like so :
+
+```html
+<div id="app">
+  <h2>Hello, {{ username }}</h2>
+</div>
+```
+
+> 💡 Note : Using curly brackets for templating in HTML was popularized by a framework called mustache. As a result, curly braces in templates are often called “mustaches.”
 ## Components 
 
 ### Naming
