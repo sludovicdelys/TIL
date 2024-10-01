@@ -69,6 +69,30 @@ In this example, we wrote the HTML that will be turned into a Vue app. Then, in 
 
 **Note**: We must import our Vue app code after the `<script>` that loads Vue.js. Otherwise, we would not yet have access to the Vue library in app.js, making it impossible to create a Vue app. This is also why we add `defer` to both elements — to ensure Vue has fully loaded when we go to make our Vue app.
 
+### Data
+
+An essential feature of all front-end frameworks is rendering and updating dynamic data. Information like the number of likes on a social media post may change at any second. Front-end frameworks must make it easy to display these types of dynamic data and automatically update them for users as soon as they change.
+
+To display dynamic information we need:
+- A place to store the data we will be displaying
+- A syntax for displaying that information
+
+Everything our Vue app needs should be provided on the options object when the Vue app is created. Therefore, all of our dynamic data will need to be specified in our options object at a property called `data`.
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    username: 'Michael'
+  }
+});
+```
+
+Apps need to display many pieces of dynamic data. To accommodate this, the value of `.data` is an object as well. Every piece of data will be added to the `.data` object as a key-value pair.
+
+> 💡 Note: In most apps, your code would likely get this data from a database.
+
+
 ## Components 
 
 ### Naming
