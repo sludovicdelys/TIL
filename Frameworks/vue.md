@@ -103,6 +103,41 @@ Vue makes use of **templating**, meaning that the developer specifies certain co
 ```
 
 > 💡 Note : Using curly brackets for templating in HTML was popularized by a framework called mustache. As a result, curly braces in templates are often called “mustaches.”
+
+## Directives
+
+Directives are custom HTML attributes built into Vue that accomplish incredibly complex, common front-end operations using barely any code.
+
+For example, one very common front-end need is to conditionally display elements. Let’s say we only want to show a login button if a user isn’t already logged in. We can add a `v-if` directive as an attribute to HTML elements like so :
+
+```html
+<button v-if="userIsLoggedIn">Log Out</button>
+<button v-if="!userIsLoggedIn">Log In</button>
+```
+
+`v-if` acts an awful lot like JavaScript `if` - it will only display the HTML element it is on if the `v-if` statement returns `true`. In this case, it will check our `.data` for a value of `userIsLoggedIn`. Then it will only display our “Log Out” button if `userIsLoggedIn` is `true` and will only display our “Log In” button if it is `false`.
+
+Another complex, common front-end need is to render an array of items identically. We can use v-for as an attribute, like so :
+
+```html
+<ul>
+  <li v-for="todo in todoList">{{ todo }}</li>
+</ul>
+```
+
+`v-for` will iterate through every item in our `.data`‘s `todoList` array, create a variable called `todo` containing each succesive array element, and create an `li` displaying each element in the list. Even if a new item is added to the list, the list will be re-rendered instantly to display that new item.
+
+One more super cool directive is `v-model`. `v-model` can be added to any form field and hooked up to our Vue app’s `data`. Modifying the form field will then automatically modify the specified Vue app `data`!
+
+```html
+<input v-model="username" />
+```
+
+The above input field will display the current value of `username` on the Vue app’s data object and will change the value of username if the user modifies the value in the field. That’s some complicated JavaScript implemented perfectly with very little code.
+
+> 💡 Note : As you may have noticed, every built-in Vue directive starts with `v-`. You can view a list of them all [here](https://vuejs.org/api/#Directives). Just know that if there isn’t a directive that does what you need — you can even make your own!
+
+Directives make complex front-end code easy to write, easy to read, and optimized for great site performance.
 ## Components 
 
 ### Naming
