@@ -138,7 +138,28 @@ The above input field will display the current value of `username` on the Vue ap
 > 💡 Note : As you may have noticed, every built-in Vue directive starts with `v-`. You can view a list of them all [here](https://vuejs.org/api/#Directives). Just know that if there isn’t a directive that does what you need — you can even make your own!
 
 Directives make complex front-end code easy to write, easy to read, and optimized for great site performance.
+
 ## Components 
+
+When creating a component, you provide a template that should be rendered whenever the component is used in HTML. You then specify which pieces of dynamic information, called **props**, the component can receive to fill in this template. When used in your HTML code, props look like normal HTML attributes, you add them to the opening tag of the component HTML element with a name and a value.
+
+```javascript
+const Tweet = Vue.component('tweet', {
+ props: ['message', 'author'],
+ template: '<div class="tweet"><h3>{{ author }}</h3><p>{{ message }}</p></div>'
+});
+```
+
+Once you’ve created your component, you can then use it throughout your site just like any other HTML element. This means no copy/pasting of HTML code, no need to make the same change in multiple places across your site, and no potentially broken or misstyled elements.
+
+```html
+<div class="tweets">
+  <tweet v-for="tweet in tweets" 
+         v-bind:message="tweet"
+         v-bind:author="username"></tweet>
+</div>
+```
+
 
 ### Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
