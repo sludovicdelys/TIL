@@ -104,7 +104,7 @@ Vue makes use of **templating**, meaning that the developer specifies certain co
 
 > 💡 Note : Using curly brackets for templating in HTML was popularized by a framework called mustache. As a result, curly braces in templates are often called “mustaches.”
 
-## Directives
+### Directives
 
 Directives are custom HTML attributes built into Vue that accomplish incredibly complex, common front-end operations using barely any code.
 
@@ -139,7 +139,7 @@ The above input field will display the current value of `username` on the Vue ap
 
 Directives make complex front-end code easy to write, easy to read, and optimized for great site performance.
 
-## Components 
+### Components 
 
 When creating a component, you provide a template that should be rendered whenever the component is used in HTML. You then specify which pieces of dynamic information, called **props**, the component can receive to fill in this template. When used in your HTML code, props look like normal HTML attributes, you add them to the opening tag of the component HTML element with a name and a value.
 
@@ -160,6 +160,15 @@ Once you’ve created your component, you can then use it throughout your site j
 </div>
 ```
 
+## Quick review
 
-### Naming
+* Make front-end code quicker to write — loading Vue in one line, mustache templates, built-in **directives**, and re-usable **components** make Vue easy to read and easy to write.
+
+* Make front-end code easier to modify and fix — using readable mustache templates, using built-in heavily-tested **directives**, and consolidating repetitive code into **components** make Vue code less error-prone and easier to fix when errors do occur.
+
+* Make front-end apps fast and responsive — Vue’s use of a **Virtual DOM** makes site updates happen only when they need to and incredibly fast when they do
+
+> 💡 You might still be asking yourself at this point — is Vue right for me? Should I be learning Angular or React instead? **The answer is that there is no right answer! All of these front-end frameworks work incredibly well and are getting better every year.** Each framework has its own syntax, but many of the skills you acquire will be transferable between frameworks. **React** also uses a **virtual DOM**. **Angular** also uses **directives**. Both use **mustache-like templates** and **components**. Learn the framework that is most exciting to you. All that matters is that you never get stuck in your learning journey.
+
+## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
