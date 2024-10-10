@@ -160,7 +160,7 @@ Once you’ve created your component, you can then use it throughout your site j
 </div>
 ```
 
-## Quick review
+### Quick review
 
 * Make front-end code quicker to write — loading Vue in one line, mustache templates, built-in **directives**, and re-usable **components** make Vue easy to read and easy to write.
 
@@ -169,6 +169,30 @@ Once you’ve created your component, you can then use it throughout your site j
 * Make front-end apps fast and responsive — Vue’s use of a **Virtual DOM** makes site updates happen only when they need to and incredibly fast when they do
 
 > 💡 You might still be asking yourself at this point — is Vue right for me? Should I be learning Angular or React instead? **The answer is that there is no right answer! All of these front-end frameworks work incredibly well and are getting better every year.** Each framework has its own syntax, but many of the skills you acquire will be transferable between frameworks. **React** also uses a **virtual DOM**. **Angular** also uses **directives**. Both use **mustache-like templates** and **components**. Learn the framework that is most exciting to you. All that matters is that you never get stuck in your learning journey.
+
+## Data
+
+Most values on the web can change at any moment, such as the number of likes on a post or the current set of posts to display. We call constantly-changing data values like this **dynamic data**. We need a place to store dynamic data values so that we can still use them in our HTML even when we don’t know what their values will be at any given moment. There are many different ways to do this in Vue.
+
+The simplest way is the `data` property on the options object. The value of `data` is an object. Each key-value pair in this object corresponds to a piece of data to be displayed in the template. The key is the name of the data to use in the template and the value is the value to display when the template is rendered.
+
+We then use mustache syntax to display this data in our HTML template.
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    language: 'Spanish',
+    hoursStudied: 274
+  }
+});
+```
+
+```html
+<div id="app">
+  <p>You have been studying {{ language }} for {{ hoursStudied }} hours</p>
+</div>
+```
 
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
