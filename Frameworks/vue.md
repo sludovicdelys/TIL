@@ -194,5 +194,95 @@ const app = new Vue({
 </div>
 ```
 
+### Computed Properties
+
+Some data can be calculated based on information already stored and doesn’t require it’s own key-value pair in the data object. Vue allows us to store data that can be calculated using values from the `data` object at a separate property called `computed`.
+
+Instead of storing computed data as key-value pairs in our `data` object, we store key-value pairs in a separate `computed` object. Each key in the `computed object is the name of the property and the value is a function that can be used to generate a value rather than a specific value.
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    hoursStudied: 274
+  },
+  computed: {
+    languageLevel: function() {
+      if (this.hoursStudied < 100) {
+        return 'Beginner';
+      } else if (this.hoursStudied < 1000) {
+        return 'Intermediate';
+      } else {
+        return 'Expert';
+      }
+    }
+  }
+});
+```
+
+``` html
+<div id="app">
+  <p>You have studied for {{ hoursStudied }} hours. You have {{ languageLevel }}-level mastery.</p>
+</div>
+```
+
+In order to reference a value from `data` in this function, we treat that value as an instance property using `this`. followed by the name of the data — in our example, `this.hoursStudied`.
+
+### Computed Property Setters
+
+Being able to generate `computed` properties based on `data` is super useful. But why limit ourselves by only allowing this data flow to only go one way?
+
+Vue allows us to not only determine computed values based on data values but to also update the necessary data values if a computed value ever changes! This allows our users to potentially edit computed values in the front-end and have all of the corresponding data properties get changed in response so that the computed property will re-calculate to the user’s chosen value.
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    hoursStudied: 274
+  },
+  computed: {
+    languageLevel: {
+      get: function() {
+        if (this.hoursStudied < 100) {
+          return 'Beginner';
+        } else if (this.hoursStudied < 1000) {
+          return 'Intermediate';
+        } else {
+          return 'Expert';
+        }
+      },
+      set: function(newLanguageLevel) {
+        if (newLanguageLevel === 'Beginner') {
+          this.hoursStudied = 0;
+        } else if (newLanguageLevel === 'Intermediate') {
+          this.hoursStudied = 100;
+        } else if (newLanguageLevel === 'Expert') {
+          this.hoursStudied = 1000;
+        }
+      }
+    }
+  }
+});
+```
+
+```html
+<div id=“app”>
+  <p>You have studied for {{ hoursStudied }} hours. You have {{ languageLevel }}-level mastery.</p>
+  <span>Change Level:</span>
+  <select v-model="languageLevel">
+    <option>Beginner</option>
+    <option>Intermediate</option>
+    <option>Expert</option>
+  </select>
+</div>
+```
+
+In this example:
+
+* We modified our computed `languageLevel` value to contain both a getter and a setter method. We did this by making the value of `languageLevel` an object with two keys, `get` and `set`, each with a value of a function.
+* The `get` function is the same function we used earlier, computing the value of `languageLevel` based on `hoursStudied`.
+* The `set` function updates other data whenever the value of `languageLevel` changes. `set` functions take one parameter, the new value of the `computed` value. This value can then be used to determine how other information in your app should be updated. In this case, whenever `languageLevel` changes, we set the value of `hoursStudied` to be the minimum number of hours needed to achieve that mastery level.
+* Finally, we added a `<select>` field to our template that allows users to change their mastery level. Don’t worry about this part of the logic yet, we will cover this information in Vue Forms.
+
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
