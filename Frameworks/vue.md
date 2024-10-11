@@ -370,5 +370,60 @@ The value of `methods` is an object where the keys of the object are the names o
 
 If you want to learn more about each of these properties, check out the Options / Data section of the Vue.js documentation.
 
+## Vue Forms
+
+### Text, Textarea, and Select Bindings
+
+In web development, it is very common to add forms to sites to allow users to modify these types of dynamic values. As a result, Vue has implemented a directive, called `v-model`, that automatically binds form fields to dynamic values on the Vue app. When a form field is bound to a value, whenever the value in that form field changes, the value on the Vue app will change to the same value as well. Similarly, if the data on the Vue app changes, the value in the form field will automatically change to reflect the new value to the user.
+
+```html
+<input type="text" v-model="username" />
+```
+
+```javascript
+const app = new Vue({ 
+  el: '#app',
+  data: { username: 'Michael' } 
+});
+```
+
+In this example, we bound an `<input>` field to a piece of Vue data called `username`, like so:
+
+* We added a piece of dynamic data to the Vue app called `username`
+* We used `v-model` on an `<input>` field to bind the `<input>` to the piece of data with the provided name: `username`.
+
+Now, when this example site is loaded, the `<input>` will already be pre-filled with `'Michael'`, the starting value of `username`. Then, whenever the `<input>` is modified by the user, the `username` `data` value will automatically change to the value typed in by the user.
+
+In this example, we bound the form field to a property on `data`. However, `v-model` also works with `computed` properties as well.
+
+`v-model` works on all HTML form field elements. So, simple form fields such as `<textarea>` elements and `<select>` elements can be bound to `data` and `computed` properties in the exact same way: adding v-model="propertyName" to the opening tag of the elements.
+
+### Radio Button Bindings
+
+Radio buttons are a series of buttons where the user can only select one. When a different button is selected, the previously-selected button becomes unselected.
+
+In HTML, each radio button is its own `<input>` field. However, they all correspond to the same piece of data in the Vue app. As a result, each `<input>` field will need its own `v-model` directive. However, the value of `v-model` for each `<input>` will be the same: the name of the property they all correspond to.
+
+```html
+<legend>How was your experience?</legend>
+
+<input type="radio" id="goodReview" value="good" v-model="experienceReview" />
+<label for="goodReview">Good</label>
+
+<input type="radio" id="neutralReview" value="neutral" v-model="experienceReview" />
+<label for="neutralReview">Neutral</label>
+
+<input type="radio" id="badReview" value="bad" v-model="experienceReview" />
+<label for="badReview">Bad</label>
+```
+```javascript
+const app = new Vue({ 
+  el: '#app', 
+  data: { experienceReview: '' } 
+});
+```
+
+Note: The `<legend>` and `<label>` elements and the id properties on the `<input>`s used in this example are used for site accessiblity. These are not Vue features and, thus, are outside the scope of this course. 
+
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
