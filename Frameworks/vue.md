@@ -332,6 +332,43 @@ This functionality is not a `computed` value because we do not actually need to 
 
 The value of `watch` is an object containing all of the properties to watch. The keys of this object are the names of the properties to watch for changes and the values are functions to run whenever the corresponding properties change. These functions take two parameters: the new value of that property and the previous value of that property.
 
+### Instance methods 
+
+The `methods` property is where Vue apps store their instance methods. These methods can be used in many situations, such as helper functions used in other methods or event handlers (functions that are called in response to specific user interactions).
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    hoursStudied: 300
+  },
+  methods: {
+    resetProgress: function () {
+      this.hoursStudied = 0;
+    }
+  }
+});
+```
+
+```html
+<button v-on:click="resetProgress">Reset Progress</button>
+```
+
+In this example, we added an instance method called `resetProgress` to our Vue app using methods. This method sets the value of `hoursStudied` to `0`.
+
+We then added this method as an event handler to a `<button>` so that whenever the button is clicked, the method will be called. Don’t worry about the `v-on:click` code for this lesson — we will cover it in Vue Forms.
+
+The value of `methods` is an object where the keys of the object are the names of the methods and the values are the corresponding instance methods.
+
+### Review
+
+`data` - used for storing known dynamic values
+`computed` - used for computing dynamic values based on known dynamic values — can additionally specify a setter by specifying get and set 
+ functions — the setter will update other dynamic values when the computed value changes
+`watch` - used for performing functionality when a specified dynamic value changes `
+`methods` - used for storing instance methods to be used throughout the app
+
+If you want to learn more about each of these properties, check out the Options / Data section of the Vue.js documentation.
 
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
