@@ -284,5 +284,54 @@ In this example:
 * The `set` function updates other data whenever the value of `languageLevel` changes. `set` functions take one parameter, the new value of the `computed` value. This value can then be used to determine how other information in your app should be updated. In this case, whenever `languageLevel` changes, we set the value of `hoursStudied` to be the minimum number of hours needed to achieve that mastery level.
 * Finally, we added a `<select>` field to our template that allows users to change their mastery level. Don’t worry about this part of the logic yet, we will cover this information in Vue Forms.
 
+### Watchers
+
+So far we’ve learned that `data` is used to store known dynamic data and `computed` is used to store dynamic data that is computed using other pieces of dynamic data. **However, there is one caveat**.
+
+A `computed` value will only recompute when a dynamic value used inside of its getter function changes. For example, in our previous examples `languageLevel` would only be recomputed if hoursStudied changed.
+
+```javascript
+computed: {
+    languageLevel: {
+      get: function() {
+        if (this.hoursStudied < 100) {
+          return 'Beginner';
+        } else if (this.hoursStudied < 1000) {
+          return 'Intermediate';
+        } else {
+          return 'Expert';
+        }
+      },
+```
+
+But what do we do if we want to make app updates without explicitly using a value in a computed function? We use the watch property.
+
+``` javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    currentLanguage: 'Spanish',
+    supportedLanguages: ['Spanish', 'Italian', 'Arabic'],
+    hoursStudied: 274
+  },
+  watch: {
+    currentLanguage: function (newCurrentLanguage, oldCurrentLanguage) {
+      if (supportedLanguages.includes(newCurrentLanguage)) {
+        this.hoursStudied = 0;
+      } else {
+        this.currentLanguage = oldCurrentLanguage;
+      }
+    }
+  }
+});
+```
+
+In this example, we want to set the number of hours studied to `0` whenever the user changes languages to a new supported language. If the language is not supported, it reverts the language back to the previously-selected language.
+
+This functionality is not a `computed` value because we do not actually need to continually use this information to compute a new dynamic property: we just need to update existing properties whenever the change happens.
+
+The value of `watch` is an object containing all of the properties to watch. The keys of this object are the names of the properties to watch for changes and the values are functions to run whenever the corresponding properties change. These functions take two parameters: the new value of that property and the previous value of that property.
+
+
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
