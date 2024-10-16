@@ -508,5 +508,34 @@ Vue offers the following three modifiers for `v-model`:
 * `.trim` — removes whitespace from the beginning and ends of the form field value
 * `.lazy` — only updates data values when `change` events are triggered (often when a user moves away from the form field rather than after every keystroke)
 
+### Form Validation
+Form validation is the process in which we ensure all required information has been provided by the user and provided in the proper format. We don’t want a user to forget an important piece of information, like their last name, and never be informed about it!
+
+This method makes heavy use of the `disabled` `<button>` property. In brief, if `disabled` is present (or set to true) on a `<button>` element, that `<button>` will not do anything when pressed. Whereas if `disabled` is not present (or set to false), the button will work as expected. You can find more information about the disabled property in the [MDN <button>` documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes).
+
+```html
+<button type="submit" v-bind:disabled="!formIsValid">Submit</button>
+```
+```javascript
+const app = new Vue({ 
+  el: '#app', 
+  computed: { 
+    formIsValid: function() { ... } 
+  }
+});
+```
+
+In this example:
+* We use the `v-bind` directive to set the value of the `disabled` property on a “Submit” button to the value of a computed property called `formIsValid`
+* `formIsValid` will contain some logic that checks the values stored on the Vue app and returns a boolean representing whether or not the form is valid
+* If the form is valid, `formIsValid` will return `true` and the `disabled` property will not be present on the “Submit” button, keeping the button enabled
+* If the form is not valid, `formIsValid` will return `false` and the button will be disabled
+
+### Review
+* Form fields can be bound to Vue data using the `v-model` directive — how `v-model` is used depends on the type of field it is being added to
+* Form event handlers can be added using `v-on:submit` and `v-on:reset`.
+* Modifiers can be used to add functionality to directives — most importantly preventing page reload on form submission using `v-on:submit.prevent` and cleaning up form field values using `.number` and `.trim`.
+* Form validation can be implemented by setting the value of the `disabled` attribute on a `<button>` to the value of a computed property using `v-bind`.
+
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
