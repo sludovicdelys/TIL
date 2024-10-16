@@ -436,12 +436,12 @@ const app = new Vue({
 });
 ```
 
-In this example, we have a set of checkbox fields where users can select all of the features they want to see added to the site. Each checkbox <input> field has the same v-model added to it: requestedFeatures. All of the values of the checked <input> elements will be added to the requestedFeatures array on data.
+In this example, we have a set of checkbox fields where users can select all of the features they want to see added to the site. Each checkbox `<input>` field has the same `v-model` added to it: `requestedFeatures`. All of the values of the checked `<input>` elements will be added to the `requestedFeatures` array on data.
 
 ### Boolean Checkbox Bindings
 You may not always use a list of checkboxes. Sometimes you may only need a single checkbox to indicate whether a user has or has not checked a single option. In this case, we need to change the type of Vue data bound to the checkbox.
 
-A single checkbox, can be represented by a boolean value. If the checkbox is checked, the value is true — if the value is unchecked, the value is false.
+A single checkbox, can be represented by a boolean value. If the checkbox is checked, the value is `true` — if the value is unchecked, the value is `false`.
 
 ```html
 <legend>Would you recommend this site to a friend?</legend>
@@ -454,6 +454,52 @@ const app = new Vue({
   data: { wouldRecommend: false } 
 });
 ```
+
+### Form Event Handlers
+As seen in MDN’s list of events, forms have two built-in events that we need to handle: submit events (when a submit button is pressed to submit the final form) and reset events (when a reset button is pressed to reset the form to its initial state).
+
+Vue uses the `v-on` directive to add event handlers. Event handlers will respond to the specified event by calling the specified method.
+
+```html
+<form v-on:reset="resetForm">
+  ...
+  <button type="reset">Reset</button>
+</form>
+```
+
+```javascript
+const app = new Vue({ 
+  el: '#app', 
+  methods: { resetForm: function() { ... } }
+});
+```
+
+In this example, we added a `reset` event handler to our form. We specify the type of event to respond to after a colon, `:`, and then specify the method to call as the value of the directive. When a user clicks the “Reset” button, a `reset` event will be triggered (because the type of the button is `reset`), the `<form>` event handler will see this event appear, and the `resetForm` method will be called in response.
+
+> 💡 **Note**: A common shorthand for event handlers involves replacing v-on: with @, like so:
+>```html
+><form @reset="resetForm">
+>  ...
+></form>
+>```
+
+Both syntaxes are acceptable and used in Vue applications.
+
+### Form Event Modifiers
+In order to ensure a great web experience, browsers set up default actions to perform in response to events. That way even if a web app doesn’t know how to handle an event, the browser will still respond to it. You saw this in the previous exercise when your app refreshed the page in response to a form submit event.
+
+Event objects have built-in methods to modify this behavior, such as [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) (which stops the browser from performing its default event-handling behavior) and [Event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) (which stops the event from continuing to be handled beyond the current handler).
+
+Vue gives developers access to these methods in the form of **modifiers**. Modifiers are properties that can be added to directives to change their behavior. Vue includes modifiers for many common front-end operations, such as event handling.
+
+```html
+<form v-on:submit.prevent="submitForm">
+  ...
+</form>
+```
+
+In this example, we added the prevent modifier to a form submit event handler directive. This will automatically call Event.preventDefault() whenever our event handler is triggered — in the case of form submit events, this will prevent the page from reloading.
+
 
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
