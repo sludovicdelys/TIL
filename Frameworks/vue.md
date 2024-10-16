@@ -500,6 +500,13 @@ Vue gives developers access to these methods in the form of **modifiers**. Modif
 
 In this example, we added the prevent modifier to a form submit event handler directive. This will automatically call Event.preventDefault() whenever our event handler is triggered — in the case of form submit events, this will prevent the page from reloading.
 
+### Input Modifiers
+Modifiers are incredibly useful tools for quickly adding essential front-end logic to directives. Vue offers modifiers for many of their directives, including the main topic of this lesson: `v-model`. Yes, that’s right, we can use modifiers to make our form fields even more versatile.
+
+Vue offers the following three modifiers for `v-model`:
+* `.number` — automatically converts the value in the form field to a number
+* `.trim` — removes whitespace from the beginning and ends of the form field value
+* `.lazy` — only updates data values when `change` events are triggered (often when a user moves away from the form field rather than after every keystroke)
 
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
