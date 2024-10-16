@@ -16,7 +16,6 @@ We use the `defer` attribute on the `<script> tag to make sure that the page is 
 The Vue team recognized that many complex front-end features aren’t useful until late in the front-end learning journey (or sometimes at all). As a result, they offered this simple alternative that provides most of Vue’s features to developers quickly and easily.
 
 ## Creating Vue Apps
-
 Vue makes it easy to make a new app by exporting a class called `Vue`. Much like any other JavaScript class, we create instances of this class using the `new` keyword. Each of these `Vue` instances is a fully-functioning Vue app.
 
 ```javascript
@@ -70,7 +69,6 @@ In this example, we wrote the HTML that will be turned into a Vue app. Then, in 
 **Note**: We must import our Vue app code after the `<script>` that loads Vue.js. Otherwise, we would not yet have access to the Vue library in app.js, making it impossible to create a Vue app. This is also why we add `defer` to both elements — to ensure Vue has fully loaded when we go to make our Vue app.
 
 ### Data
-
 An essential feature of all front-end frameworks is rendering and updating dynamic data. Information like the number of likes on a social media post may change at any second. Front-end frameworks must make it easy to display these types of dynamic data and automatically update them for users as soon as they change.
 
 To display dynamic information we need:
@@ -93,7 +91,6 @@ Apps need to display many pieces of dynamic data. To accommodate this, the value
 > 💡 Note: In most apps, your code would likely get this data from a database.
 
 ### Templates
-
 Vue makes use of **templating**, meaning that the developer specifies certain content in our HTML that isn’t meant to be displayed literally but rather substituted out with the appropriate data from the app. We specify which content inside our HTML should be substituted by surrounding it in two layers of curly brackets, like so :
 
 ```html
@@ -105,7 +102,6 @@ Vue makes use of **templating**, meaning that the developer specifies certain co
 > 💡 Note : Using curly brackets for templating in HTML was popularized by a framework called mustache. As a result, curly braces in templates are often called “mustaches.”
 
 ### Directives
-
 Directives are custom HTML attributes built into Vue that accomplish incredibly complex, common front-end operations using barely any code.
 
 For example, one very common front-end need is to conditionally display elements. Let’s say we only want to show a login button if a user isn’t already logged in. We can add a `v-if` directive as an attribute to HTML elements like so :
@@ -140,7 +136,6 @@ The above input field will display the current value of `username` on the Vue ap
 Directives make complex front-end code easy to write, easy to read, and optimized for great site performance.
 
 ### Components 
-
 When creating a component, you provide a template that should be rendered whenever the component is used in HTML. You then specify which pieces of dynamic information, called **props**, the component can receive to fill in this template. When used in your HTML code, props look like normal HTML attributes, you add them to the opening tag of the component HTML element with a name and a value.
 
 ```javascript
@@ -161,7 +156,6 @@ Once you’ve created your component, you can then use it throughout your site j
 ```
 
 ### Quick review
-
 * Make front-end code quicker to write — loading Vue in one line, mustache templates, built-in **directives**, and re-usable **components** make Vue easy to read and easy to write.
 
 * Make front-end code easier to modify and fix — using readable mustache templates, using built-in heavily-tested **directives**, and consolidating repetitive code into **components** make Vue code less error-prone and easier to fix when errors do occur.
@@ -171,7 +165,6 @@ Once you’ve created your component, you can then use it throughout your site j
 > 💡 You might still be asking yourself at this point — is Vue right for me? Should I be learning Angular or React instead? **The answer is that there is no right answer! All of these front-end frameworks work incredibly well and are getting better every year.** Each framework has its own syntax, but many of the skills you acquire will be transferable between frameworks. **React** also uses a **virtual DOM**. **Angular** also uses **directives**. Both use **mustache-like templates** and **components**. Learn the framework that is most exciting to you. All that matters is that you never get stuck in your learning journey.
 
 ## Data
-
 Most values on the web can change at any moment, such as the number of likes on a post or the current set of posts to display. We call constantly-changing data values like this **dynamic data**. We need a place to store dynamic data values so that we can still use them in our HTML even when we don’t know what their values will be at any given moment. There are many different ways to do this in Vue.
 
 The simplest way is the `data` property on the options object. The value of `data` is an object. Each key-value pair in this object corresponds to a piece of data to be displayed in the template. The key is the name of the data to use in the template and the value is the value to display when the template is rendered.
@@ -195,7 +188,6 @@ const app = new Vue({
 ```
 
 ### Computed Properties
-
 Some data can be calculated based on information already stored and doesn’t require it’s own key-value pair in the data object. Vue allows us to store data that can be calculated using values from the `data` object at a separate property called `computed`.
 
 Instead of storing computed data as key-value pairs in our `data` object, we store key-value pairs in a separate `computed` object. Each key in the `computed object is the name of the property and the value is a function that can be used to generate a value rather than a specific value.
@@ -229,7 +221,6 @@ const app = new Vue({
 In order to reference a value from `data` in this function, we treat that value as an instance property using `this`. followed by the name of the data — in our example, `this.hoursStudied`.
 
 ### Computed Property Setters
-
 Being able to generate `computed` properties based on `data` is super useful. But why limit ourselves by only allowing this data flow to only go one way?
 
 Vue allows us to not only determine computed values based on data values but to also update the necessary data values if a computed value ever changes! This allows our users to potentially edit computed values in the front-end and have all of the corresponding data properties get changed in response so that the computed property will re-calculate to the user’s chosen value.
@@ -285,7 +276,6 @@ In this example:
 * Finally, we added a `<select>` field to our template that allows users to change their mastery level. Don’t worry about this part of the logic yet, we will cover this information in Vue Forms.
 
 ### Watchers
-
 So far we’ve learned that `data` is used to store known dynamic data and `computed` is used to store dynamic data that is computed using other pieces of dynamic data. **However, there is one caveat**.
 
 A `computed` value will only recompute when a dynamic value used inside of its getter function changes. For example, in our previous examples `languageLevel` would only be recomputed if hoursStudied changed.
@@ -333,7 +323,6 @@ This functionality is not a `computed` value because we do not actually need to 
 The value of `watch` is an object containing all of the properties to watch. The keys of this object are the names of the properties to watch for changes and the values are functions to run whenever the corresponding properties change. These functions take two parameters: the new value of that property and the previous value of that property.
 
 ### Instance methods 
-
 The `methods` property is where Vue apps store their instance methods. These methods can be used in many situations, such as helper functions used in other methods or event handlers (functions that are called in response to specific user interactions).
 
 ```javascript
@@ -361,7 +350,6 @@ We then added this method as an event handler to a `<button>` so that whenever t
 The value of `methods` is an object where the keys of the object are the names of the methods and the values are the corresponding instance methods.
 
 ### Review
-
 `data` - used for storing known dynamic values
 `computed` - used for computing dynamic values based on known dynamic values — can additionally specify a setter by specifying get and set 
  functions — the setter will update other dynamic values when the computed value changes
@@ -373,7 +361,6 @@ If you want to learn more about each of these properties, check out the Options 
 ## Vue Forms
 
 ### Text, Textarea, and Select Bindings
-
 In web development, it is very common to add forms to sites to allow users to modify these types of dynamic values. As a result, Vue has implemented a directive, called `v-model`, that automatically binds form fields to dynamic values on the Vue app. When a form field is bound to a value, whenever the value in that form field changes, the value on the Vue app will change to the same value as well. Similarly, if the data on the Vue app changes, the value in the form field will automatically change to reflect the new value to the user.
 
 ```html
@@ -399,7 +386,6 @@ In this example, we bound the form field to a property on `data`. However, `v-mo
 `v-model` works on all HTML form field elements. So, simple form fields such as `<textarea>` elements and `<select>` elements can be bound to `data` and `computed` properties in the exact same way: adding v-model="propertyName" to the opening tag of the elements.
 
 ### Radio Button Bindings
-
 Radio buttons are a series of buttons where the user can only select one. When a different button is selected, the previously-selected button becomes unselected.
 
 In HTML, each radio button is its own `<input>` field. However, they all correspond to the same piece of data in the Vue app. As a result, each `<input>` field will need its own `v-model` directive. However, the value of `v-model` for each `<input>` will be the same: the name of the property they all correspond to.
@@ -452,6 +438,22 @@ const app = new Vue({
 
 In this example, we have a set of checkbox fields where users can select all of the features they want to see added to the site. Each checkbox <input> field has the same v-model added to it: requestedFeatures. All of the values of the checked <input> elements will be added to the requestedFeatures array on data.
 
+### Boolean Checkbox Bindings
+You may not always use a list of checkboxes. Sometimes you may only need a single checkbox to indicate whether a user has or has not checked a single option. In this case, we need to change the type of Vue data bound to the checkbox.
+
+A single checkbox, can be represented by a boolean value. If the checkbox is checked, the value is true — if the value is unchecked, the value is false.
+
+```html
+<legend>Would you recommend this site to a friend?</legend>
+<input type="checkbox" v-model="wouldRecommend" />
+```
+
+```javascript
+const app = new Vue({ 
+  el: '#app',
+  data: { wouldRecommend: false } 
+});
+```
 
 ## Naming
 The Vue.js style guide recommends that component names should always be multi-word, except for root App components, to prevent conflicts with existing and future HTML elements. This is because the HTML Living Standard specifies that custom elements (which Vue components essentially are) must contain a hyphen in their name.
