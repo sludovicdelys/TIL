@@ -70,4 +70,63 @@ const app = new Vue({
 
 In this example, we’ve added another Vue app property, `newsHeaderStyles`. This is a style object that will presumably be used to style all news item headers. Then, using an array with `v-bind:style`, we add both of these style objects to our `Breaking News` element.
 
-You may notice that both of these style objects contain a `color` value. When this happens, the style object added later in the array gets priority. So, `Breaking News` will be `bold` and `red`. The `grey` color rule will be overridden and not used.
+> 💡 You may notice that both of these style objects contain a `color` value. When this happens, the style object added later in the array gets priority. So, `Breaking News` will be `bold` and `red`. The `grey` color rule will be overridden and not used.
+
+## Classes
+Let’s check out how to dynamically add CSS classes instead of inline styles.
+
+```html
+<span v-bind:class="{ unread: hasNotifications }">Notifications</span>
+```
+
+```css
+.unread {
+  background-color: blue;
+}
+```
+
+```javascript
+const app = new Vue({
+  data: { notifications: [ ... ] },
+  computed: {
+    hasNotifications: function() {
+      return notifications.length > 0;
+    }
+  }
+}
+```
+
+In this example, we are using the `v-bind:class` directive to dynamically add a class called `unread` to a “Notifications” `<span>` element if the computed property `hasNotifications` returns `true`.
+
+`v-bind:class` takes an object as its value — the keys of this object are class names and the values are Vue app properties that return a truthy or falsy value. If the value is truthy, the class will be added to the element — otherwise it will not be added.
+
+In this example, if there are notifications in the notifications array, the `unread` class will be added to the “Notifications” element causing the element to be styled blue.
+
+> 💡 **Note**: Similar to before with `v-bind:style`, you can also set the value of `v-bind:class` to a Vue app property that returns a class object instead of writing the object out in your HTML file.
+
+**For example, let's compare two implementations**: 
+
+1. Directly in HTML:
+```html
+<button v-bind:class="{ active: someCondition }">Click Me</button>
+```
+* Explanation: The class object is directly written in the HTML. This is simple for small conditions but can clutter the HTML if the logic is complex.
+
+2. Using a Vue property:
+```html
+<button v-bind:class="buttonClasses">Click Me</button>
+```
+
+In your Vue instance:
+```javascript
+computed: {
+  buttonClasses() {
+    return { active: this.someCondition };
+  }
+}
+```
+
+* Explanation: The logic is moved to a computed property. This keeps the HTML clean and allows for more complex logic in JavaScript, making it easier to maintain and read. 
+
+The second approach is better for complex conditions and keeps the HTML cleaner.
+
