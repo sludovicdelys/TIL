@@ -168,4 +168,179 @@ Notice that the `plusOne()` doesn’t interact with the view at all; it just upd
 4. The function in the _controller_ updates the state of the data.
 5. The view automatically changes and displays the updated data. The page doesn’t need to reload at any point.
 
+##  Directives
 
+### Custom directives
+```javascript
+// files/js/directives/appInfo.js
+app.directive('appInfo', function() { 
+  return { 
+    restrict: 'E', 
+    scope: { 
+      info: '=' 
+    }, 
+    templateUrl: 'js/directives/appInfo.html' 
+  }; 
+});
+```
+
+```html
+// files/js/directives/appInfo.html
+<img class="icon" ng-src="{{ info.icon }}"> 
+<h2 class="title">{{ info.title }}</h2> 
+<p class="developer">{{ info.developer }}</p> 
+<p class="price">{{ info.price | currency }}</p> 
+```
+
+```html
+// files/index.html
+<div class="main" ng-controller="MainController">
+  <div class="container">
+     <div class="card">
+      <app-info info="move"></app-info> 
+    </div>
+
+    <div class="card">
+      <app-info info="shutterbugg"></app-info>
+    </div>
+
+    <div class="card">
+      <app-info info="gameboard"></app-info>
+    </div>
+  </div>
+</div>
+```
+
+First in **js/directives/appInfo.js**, we made a new directive. We used `app.directive` to create a new directive named 'appInfo'. It returns an object with three options:
+
+1. `restrict` specifies how the directive will be used in the view. The `'E'` means it will be used as a new HTML element.
+2. `scope` specifies that we will pass information into this directive through an attribute named `info`. The `=` tells the directive to look for an attribute named `info` in the `<app-info>` element, like this:
+```html
+<app-info info="shutterbugg"></app-info>
+```
+The data in `info` becomes available to use in the template given by `templateURL`.
+3. `templateUrl` specifies the HTML to use in order to display the data in `scope.info`. Here we use the HTML in **js/directives/appInfo.html**.
+
+Looking at **js/directives/appInfo.html**, we define the HTML to display details about an app, like its title and price. We use expressions and filters to display the data.
+Then in **index.html** we use the new directive as the HTML element `<app-info>`. We pass in objects from the controller’s scope (`$scope.shutterbugg`) into the `<app-info>` element’s `info` attribute so that it displays.
+
+Why is creating your own directives useful?
+
+1. **Readability**. Directives let you write expressive HTML. Looking at index.html you can understand the app’s behavior just by reading the HTML.
+2. **Reusability**. Directives let you create self-contained units of functionality. We could easily plug in this directive into another AngularJS app and avoid writing a lot of repetitive HTML.
+
+### Built-in and Custom Directives
+We can use Angular’s built-in directives together with custom directives to create more readable apps.
+```javascript
+// files/js/controllers/MainController.js
+app.controller('MainController', ['$scope', function($scope) {
+  $scope.apps = [ 
+	  { 
+	    icon: 'img/move.jpg', 
+	    title: 'MOVE', 
+	    developer: 'MOVE, Inc.', 
+	    price: 0.99 
+	  }, 
+	  { 
+	    icon: 'img/shutterbugg.jpg', 
+	    title: 'Shutterbugg', 
+	    developer: 'Chico Dusty', 
+	    price: 2.99 
+	  },
+	  {
+	    icon: 'img/gameboard.jpg',
+	    title: 'Gameboard',
+	    developer: 'Armando P.',
+	    price: 1.99
+	  },
+	  {
+	    icon: 'img/forecast.jpg',
+	    title: 'Forecast',
+	    developer: 'Forecast',
+	    price: 1.99
+	  }
+	];
+}]);
+```
+```html
+// files/index.html
+<div class="main" ng-controller="MainController">
+  <div class="container">
+     <div class="card" ng-repeat="app in apps">
+      <app-info info="app"></app-info>
+    </div>
+  </div>
+</div>
+```
+
+### installApp
+🍪 It’s possible to bake interactivity into directives.
+
+```javascript
+// files/js/directives/installApp.js
+app.directive('installApp', function() {
+  return {
+    restrict: 'E',
+    scope: {},
+    templateUrl:'js/directives/installApp.html'
+    link: function(scope, element, attrs) { 
+      scope.buttonText = "Install", 
+      scope.installed = false, 
+
+      scope.download = function() { 
+        element.toggleClass('btn-active'); 
+        if(scope.installed) { 
+          scope.buttonText = "Install"; 
+          scope.installed = false; 
+        } else { 
+          scope.buttonText = "Uninstall"; 
+          scope.installed = true; 
+        } 
+      } 
+    } 
+  }
+})
+```
+
+We used `app.directive` to create a new directive named 'installApp'.
+
+* The directive contains the three options `restrict`, `scope`, and `templateUrl` that we saw before in the `'appInfo'` directive.
+* It also contains a fourth option `link`. The `link` is used to create interactive directives that respond to user actions.
+
+The link function takes three inputs:
+
+1. `scope` refers to the directive’s scope. Any new properties attached to $scope will become available to use in the directive’s template.
+2. `element` refers to the directive’s HTML element.
+3. `attrs` contains the element’s attributes.
+   
+Inside the `link` function, there are two properties `buttonText` and `installed`, and the function `download()`. 
+
+```javascript
+//  files/js/directives/installApp.html
+<button class="btn btn-active" ng-click="download()"> 
+  {{ buttonText }} 
+</button> 
+```
+
+The template uses Angular’s built-in `ng-click` directive. When the button is clicked, `ng-click` will tell AngularJS to run the `download()` function in the directive.
+
+The `download()` function uses the `scope.installed` property to check if an app is installed. When an app is installed, `download()` does three things:
+
+* toggles the `.btn-active` class
+* changes the button text to “Uninstall”
+* changes `scope.installed` to `true`
+
+```html
+// files/index.html
+<div class="main" ng-controller="MainController">
+  <div class="container">
+     <div class="card" ng-repeat="app in apps">
+      <app-info info="app"></app-info>
+      <install-app></install-app>
+    </div>
+  </div>
+</div>
+```
+
+### Generalizations
+Directives are a powerful way to create self-contained, interactive components. Unlike jQuery which adds interactivity as a layer on top of HTML, AngularJS treats interactivity as a native component of HTML.
