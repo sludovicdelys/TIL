@@ -344,3 +344,98 @@ The `download()` function uses the `scope.installed` property to check if an app
 
 ### Generalizations
 Directives are a powerful way to create self-contained, interactive components. Unlike jQuery which adds interactivity as a layer on top of HTML, AngularJS treats interactivity as a native component of HTML.
+
+## Services
+What happens when the data contains hundreds of items, or if it’s constantly changing like weather or financial data? Hardcoding data into a controller won’t work anymore.
+
+A better solution is to read the live data from a server. We can do this by creating a _service_.
+
+[Codecademy JSON object](https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json?_gl=1*1po81lk*_gcl_au*MTI5OTg0NjMyNi4xNzI4Mzc1MTU3*_ga*ODY1MTc0ODAuMTcyODM3NTQ0Ng..*_ga_3LRZM6TM9L*MTcyOTQ5NTk0My4yNi4xLjE3Mjk0OTkxMzMuMC4wLjA.)
+```json
+{
+  "city_name": "New York",
+  "country": "US",
+  "days": [
+    {
+      "datetime": 1420390800000,
+      "icon": "https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/sun.svg",
+      "high": 68,
+      "low": 37
+    },
+    {
+      "datetime": 1420477200000,
+      "icon": "https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/clouds.svg",
+      "high": 68,
+      "low": 37
+    },
+    {
+      "datetime": 1420563600000,
+      "icon": "https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/rain.svg",
+      "high": 46,
+      "low": 14
+    },
+    {
+      "datetime": 1420650000000,
+      "icon": "https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/clouds.svg",
+      "high": 46,
+      "low": 28
+    },
+    {
+      "datetime": 1420736400000,
+      "icon": "https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/sun.svg",
+      "high": 59,
+      "low": 32
+    }
+  ]
+}
+```
+
+```javascript
+// js/services/forecast.js
+app.factory("forecast", [
+  "$http",
+  function ($http) {
+    return $http
+      .get(
+        "https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json"
+      )
+      .success(function (data) {
+        return data;
+      })
+      .error(function (err) {
+        return err;
+      });
+  },
+]);
+```
+
+```html
+// index.html
+<script src="js/services/forecast.js"></script>
+```
+
+```javascript
+// controllers/MainController.js
+app.controller('MainController', ['$scope', 'forecast', function($scope, forecast) {
+  forecast.success(function(data) { 
+    $scope.fiveDay = data; 
+  }); 
+}]);
+```
+
+1. First in **js/services/forecast.js**, we made a new _service_. We used `app.factory` to create a new service named forecast
+2. The forecast service needs to use AngularJS’s built-in `$http` to fetch JSON from the server. Therefore, we add `$http` to the forecast service as a dependency, like this:
+```javascript
+['$http', function($http) {
+  // ...
+}]
+```
+Now `$http` is available to use inside `forecast`.
+3. Then, inside `forecast`, we use `$http` to construct an HTTP `GET` request for the weather data. If the request succeeds, the weather data is returned; otherwise the error info is returned.
+4. Next in the controller, we used the `forecast` service to fetch data from the server. First we added `forecast` into `MainController` as a dependency so that it’s available to use. Then within the controller we used `forecast` to asynchronously fetch the weather data from the server and store it into `$scope.fiveDay`
+5. As before, any properties attached to `$scope` become available to use in the view. This means in `index.html`, we can display the `city_name` using an expression as done before.
+
+### Generalizations
+1. Directives are a way to make standalone UI components, like `<app-info>`.
+2. Services are a way to make standalone communication logic, like `forecast` which fetches weather data from a server
+
